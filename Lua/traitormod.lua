@@ -49,20 +49,22 @@ Traitormod.RoundStart = function()
 
     Traitormod.CodeWords = Traitormod.SelectCodeWords()
 
-    -- give XP to players based on stored points
-    for key, value in pairs(Client.ClientList) do
-        if value.Character ~= nil then
-            Traitormod.SetData(value, "Name", value.Character.Name)
-        end
+    if Traitormod.Config.EnablePointExp then
+        -- give XP to players based on stored points
+        for key, value in pairs(Client.ClientList) do
+            if value.Character ~= nil then
+                Traitormod.SetData(value, "Name", value.Character.Name)
+            end
 
-        if not value.SpectateOnly then
-            Traitormod.LoadExperience(value)
-        else
-            Traitormod.Debug("Skipping load experience for spectator " .. value.Name)
-        end
+            if not value.SpectateOnly then
+                Traitormod.LoadExperience(value)
+            else
+                Traitormod.Debug("Skipping load experience for spectator " .. value.Name)
+            end
 
-        -- Send Welcome message
-        Traitormod.SendWelcome(value)
+            -- Send Welcome message
+            Traitormod.SendWelcome(value)
+        end
     end
 
     local function startsWith(String, Start)
