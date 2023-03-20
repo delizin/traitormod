@@ -177,7 +177,9 @@ Hook.Add("characterCreated", "Traitormod.CharacterCreated", function(character)
 
         if client ~= nil then
             -- set experience of respawned character to stored value - note initial spawn may not call this hook (on local server)
-            Traitormod.LoadExperience(client)
+                if Traitormod.Config.EnablePointExp then
+                    Traitormod.LoadExperience(client)
+                end
         else
             Traitormod.Error("Loading experience on characterCreated failed! Client was nil after 1sec")
         end
