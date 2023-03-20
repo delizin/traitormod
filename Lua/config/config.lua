@@ -40,6 +40,7 @@ config.RespawnedPlayersDontLooseLives = false
 config.MaxExperienceFromPoints = 0     -- if not nil, this amount is the maximum experience players gain from stored points (30k = lvl 10 | 38400 = lvl 12)
 config.RemoveSkillBooks = false
 config.NerfSwords = false
+config.EnablePointExp = false    -- Enables Setting Exp to Point Value at Match Start
 
 config.FreeExperience = 0         -- temporary experience given every ExperienceTimer seconds
 config.ExperienceTimer = 120
