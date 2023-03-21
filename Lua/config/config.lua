@@ -61,7 +61,7 @@ config.deathSkillLossFlat = 0
 config.deathSkillLossPercentage = 5.0
 -- Can be used to create conditions like "loose 10% of your skill but at least 3 and at most 5"
 config.deathSkillLossMin = 0
-config.deathSkillLossMax = 100
+config.deathSkillLossMax = 5
 -- Whether to respect starting skill minimum. Deactivation allows skills to drop to 0.
 config.respectSkillMin = true
 
