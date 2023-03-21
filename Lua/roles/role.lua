@@ -72,7 +72,7 @@ end
 
 function role:FilterTarget(objective, character)
     if character == botGod then return false end
-    if not character.IsHuman or character.IsDead then return false end
+    if not character.IsHuman or character.IsDead or not character.IsPlayer then return false end
     if objective.RoleFilter ~= nil and not objective.RoleFilter[character.Info.Job.Prefab.Identifier.Value] then
         return false
     end
