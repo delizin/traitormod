@@ -28,7 +28,7 @@ Hook.Add("think", "Traitormod.MiscThink", function ()
 
     local targets = {}
     
-    if Level.Loaded.EndOutpost.WorldPosition == nil then return end
+    if Level.Loaded.EndOutpost == nil then return end
         
     local outpost = Level.Loaded.EndOutpost.WorldPosition
 
