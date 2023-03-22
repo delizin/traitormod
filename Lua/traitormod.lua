@@ -88,6 +88,7 @@ Traitormod.RoundStart = function()
     elseif LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.CampaignMode") then
         Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
     elseif Game.ServerSettings.TraitorsEnabled == 1 and traitor_chance_roll > 1-Traitormod.Config.TraitorChance then
+	Traitormod.Log("Traitor Roll: " .. traitor_chance_roll)
         Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
     elseif Game.ServerSettings.TraitorsEnabled == 2 then
         Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
