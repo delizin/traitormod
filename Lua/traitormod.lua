@@ -81,9 +81,9 @@ Traitormod.RoundStart = function()
 
 
     Traitormod.SelectedGamemode = nil
-    Traitormod.Log("Traitor Chance Roll: " .. traitor_chance_roll)
-
     local traitor_chance_roll = math.random()
+    Traitormod.Log("Traitor Chance Roll: " .. traitor_chance_roll)
+	
     if LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.PvPMode") then
         Traitormod.SelectedGamemode = Traitormod.Gamemodes.PvP:new()
     elseif LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.CampaignMode") then
