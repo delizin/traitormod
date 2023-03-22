@@ -161,7 +161,8 @@ local function reduceSkills(characterInfo)
     end
 end
 	
-Hook.HookMethod("Barotrauma.Networking.RespawnManager", "ReduceCharacterSkills", function (instance, ptable)
+Hook.Patch("Barotrauma.Networking.RespawnManager", "ReduceCharacterSkills", function (instance, ptable)
+    Traitormod.Log("Respawning Character with Reduced Penalties.")
     reduceSkills(ptable.characterInfo)
     -- return anything to prevent vanilla ReduceCharacterSkills from running
     return false 
