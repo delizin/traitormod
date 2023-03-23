@@ -101,15 +101,14 @@ config.GamemodeConfig = {
         LivesGainedFromCrewMissionsCompleted = 1,
 
         TraitorTypeChance = {
-            Traitor = 50, -- Traitors have 50% chance of being a normal traitor
-            Cultist = 50,
+            Traitor = 90, -- Traitors have 90% chance of being a normal traitor
+            Cultist = 10,
         },
 
         AmountTraitors = function (amountPlayers)
             config.TestMode = false
-            if amountPlayers > 12 then return 3 end
-            if amountPlayers > 7 then return 2 end            
-            if amountPlayers > 3 then return 1 end
+            if amountPlayers > 11 then return 2 end            
+            if amountPlayers > 5 then return 1 end
             if amountPlayers == 1 then 
                 Traitormod.SendMessageEveryone("1P testing mode - no points can be gained or lost") 
                 config.TestMode = true
