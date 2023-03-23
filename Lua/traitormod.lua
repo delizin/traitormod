@@ -46,33 +46,26 @@ end
 Traitormod.RoundStart = function()
     Traitormod.Log("Starting traitor round - Traitor Mod v" .. Traitormod.VERSION)
     pointsGiveTimer = Timer.GetTime() + Traitormod.Config.ExperienceTimer
-    local traitor_chance_roll = math.random()
-    Traitormod.Log("Traitor Chance Roll: " .. traitor_chance_roll)
-    if traitor_chance_roll <= 1-Traitormod.Config.TraitorChance then
-	Traitormod.Log("No traitor this round.")
-	Traitormod.SelectedGamemode = nil
-	return
-    else
-	Traitormod.Log("Traitor Roll Successful")
 
     Traitormod.CodeWords = Traitormod.SelectCodeWords()
 
-    if Traitormod.Config.EnablePointExp then
-        -- give XP to players based on stored points
-        for key, value in pairs(Client.ClientList) do
-            if value.Character ~= nil then
-                Traitormod.SetData(value, "Name", value.Character.Name)
-            end
 
+    for key, value in pairs(Client.ClientList) do
+        if value.Character ~= nil then
+            Traitormod.SetData(value, "Name", value.Character.Name)
+        end
+
+        -- give XP to players based on stored points
+        if Traitormod.Config.EnablePointsExp then
             if not value.SpectateOnly then
                 Traitormod.LoadExperience(value)
             else
                 Traitormod.Debug("Skipping load experience for spectator " .. value.Name)
             end
-
-            -- Send Welcome message
-            Traitormod.SendWelcome(value)
         end
+
+        -- Send Welcome message
+        Traitormod.SendWelcome(value)
     end
 
     local function startsWith(String, Start)
@@ -93,19 +86,26 @@ Traitormod.RoundStart = function()
     if LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.PvPMode") then
         Traitormod.SelectedGamemode = Traitormod.Gamemodes.PvP:new()
     elseif LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.CampaignMode") then
-        Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
-    elseif Game.ServerSettings.TraitorsEnabled == 1 and traitor_chance_roll > 1-Traitormod.Config.TraitorChance then
-	Traitormod.Log("Traitor - Maybe Mode")
-        Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
-    elseif Game.ServerSettings.TraitorsEnabled == 2 then
-	Traitormod.Log("Traitor - Yes Mode")
-        Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
+        if Game.ServerSettings.TraitorsEnabled == 1
+            local traitor_chance_roll = math.random(); -- setting TraitorChance to for example 0.7 means: 70% chance *for* traitors
+            Traitormod.Log("Campaign - Traitor chance roll:"..traitor_chance_roll..", configured chance:"..Traitormod.Config.TraitorChance)
+            if Traitormod.Config.TraitorChance > math.random() then
+                Traitormod.Log("Campaign - Rolled for active traitor gamemode")
+                Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
+            else
+                Traitormod.Log("Campaign - Rolled for regular campaign gamemode")
+                Traitormod.SelectedGamemode = Traitormod.Gamemodes.Gamemode:new()
+            end
+        elseif Game.ServerSettings.TraitorsEnabled == 2 then
+            Traitormod.Log("Campaign - Guaranteed traitor gamemode")
+            Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
+        else
+            Traitormod.Log("Campaign - Guaranteed regular campaign gamemode")
+            Traitormod.SelectedGamemode = Traitormod.Gamemodes.Gamemode:new()
+        end
     else
-	Traitormod.SelectedGamemode = nil
-	return
+        Traitormod.SelectedGamemode = nil
     end
-	
-   
 
     if Traitormod.SelectedGamemode == nil then
         Traitormod.Log("No gamemode selected!")
@@ -118,10 +118,10 @@ Traitormod.RoundStart = function()
         Traitormod.SelectedGamemode:Start()
     end
 end
-	
+    
 Hook.Patch("Barotrauma.Networking.RespawnManager", "ReduceCharacterSkills", function (instance, ptable)
     Traitormod.Log("Respawning Character with No Penalties.")
-	ptable.PreventExecution = true
+    ptable.PreventExecution = true
     -- return anything to prevent vanilla ReduceCharacterSkills from running
     return false 
 end, Hook.HookMethodType.Before)
