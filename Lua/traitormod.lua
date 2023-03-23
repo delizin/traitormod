@@ -94,7 +94,7 @@ Traitormod.RoundStart = function()
     elseif Game.ServerSettings.TraitorsEnabled == 2 then
 	Traitormod.Log("Traitor - Yes Mode")
         Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
-    else:
+    else
 	Traitormod.SelectedGamemode = nil
 	return
     end
