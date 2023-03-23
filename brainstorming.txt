@@ -1,0 +1,71 @@
+Swayze Brainstorming:
+Everyone:
+Steal the Captain’s/Security Officer’s/Medic’s ID
+
+The Perfect Heist
+“Convince” the captain to transfer at least 2,000mks to your personal account and survive the round
+Escape from the sub with a crate full of at least 1,000mks worth of sell-only loot, such as moloch bones, and survive the round. If successful, set the crate aside and sell it at the next colony. You receive 50% of the money from the sale.
+
+Person for the Ethical Treatment of Monstrosities
+<Juvenile/Aduly> Monstrosities of type <x> have recently been classified as endangered. Ensure that none are hurt this round.
+Hatch and ensure the safety of 3 eggs
+(long term) Secretly raise <X> dangerous creature to adulthood on board the submarine
+
+Dark Jester
+Incapacitate another player and steal their identity for 5 minutes
+Set off a dirty bomb on the sub without killing anyone or destroying any items
+Replace 3 welders oxygen tanks/diving suits air tanks with welding/oxygen tanks
+Slip at least 10 players with banana peels
+
+Upstart Pirate Lord
+Convince one person per round to support you in an upcoming mutiny. If your plot is discovered, you must immediately begin the mutiny.
+(long term) Incite a mutiny against the current captain and become the new captain
+
+Separatist Agitator
+Deduce the identity of the Coalition Spy and eliminate them without anyone noticing
+Eliminate the Cargo (if taken from the opposite faction)
+Frame someone else as the spy (have them handcuffed for 120 seconds for a crime you committed)
+
+Coalition Spy
+Deduce the identity of the Coalition Spy and eliminate them without anyone noticing
+Eliminate the Cargo (if taken from the opposite faction)
+Frame someone else as the agitator (have them handcuffed for 120 seconds for a crime you committed)
+Discreetly install a console and send x information to y channel (Could spawn a memory card / pda with some info in the captain’s locker on round start that you’d need to get the information off of, then the game checks for that info on the channel)
+
+Suzera Ideas:
+try not to get suspected before your hijink is done
+blow a hole in the ship using a non-nuclear explosive during a fight
+destroy engine during a fight
+cut 3 important wires
+sonar pulse when trying to run silent
+hide the welding tools from the npc repairers (maybe too much like welding them in a room idk)
+"accidentally" have the ship fight an abyss monster
+rotate directions you give people by 90 degrees
+decide to use an entirely different orienting system than usual
+be inaccurate with bullets
+drop a mininuke when nobody else is around (but not where items can fall out)
+husk yourself and try to turn in a convenient place to get more players
+find a way to go unconscious implausibly or inconveniently, but not dead so people have to scramble to rescue you. give poor directions
+that piezo crystal explosion was a bit too close
+drone goes on adventure. maybe needlessly.
+tell people the wrong room names for where things and events are, especially when monsters are on the boat
+spread ammo boxes across the ship
+
+Other ideas:
+Lone operative spawns in a shuttle, job is to infiltrate ship crew
+Sub edits to make important wires hard-wired
+Evil clone: You spawn in as someone else, exact copy of gear and name, and your job is to murder the original and take their place
+Speed: wire a bomb on the ship that triggers if the boat drops below X speed
+
+Suzera’s suggestions:
+no:
+-specifically murder
+-destroy items
+-just waste items (including like the thing tried last night after being cuffed by telling the ai to use medicines)
+-hide things in toxin/security containers
+-don't retrieve corpses
+-using discord/ooc chat to to lie about traitor stuff
+-disordering the main resource storages or other non-final products. handling this is already a pain and would only increase tedium, not danger
+party foul:
+-knowingly kill an npc (or maybe reduce cost and increase availability so we can kill them with less consequence)
+-the whole medbay fort deal type stuff where it gets in the way of regular gameplay even when not traitoring
