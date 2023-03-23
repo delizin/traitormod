@@ -46,6 +46,14 @@ end
 Traitormod.RoundStart = function()
     Traitormod.Log("Starting traitor round - Traitor Mod v" .. Traitormod.VERSION)
     pointsGiveTimer = Timer.GetTime() + Traitormod.Config.ExperienceTimer
+    local traitor_chance_roll = math.random()
+    Traitormod.Log("Traitor Chance Roll: " .. traitor_chance_roll)
+    if traitor_chance_roll <= 1-Traitormod.Config.TraitorChance then
+	Traitormod.Log("No traitor this round.")
+	Traitormod.SelectedGamemode = nil
+	return
+    else
+	Traitormod.Log("Traitor Roll Successful")
 
     Traitormod.CodeWords = Traitormod.SelectCodeWords()
 
@@ -81,9 +89,7 @@ Traitormod.RoundStart = function()
 
 
     Traitormod.SelectedGamemode = nil
-    local traitor_chance_roll = math.random()
-    Traitormod.Log("Traitor Chance Roll: " .. traitor_chance_roll)
-	
+    
     if LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.PvPMode") then
         Traitormod.SelectedGamemode = Traitormod.Gamemodes.PvP:new()
     elseif LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.CampaignMode") then
