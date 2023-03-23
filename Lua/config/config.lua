@@ -120,14 +120,14 @@ config.GamemodeConfig = {
         LivesGainedFromCrewMissionsCompleted = 0,
 
         TraitorTypeChance = {
-            Traitor = 50, -- Traitors have 50% chance of being a normal traitor
-            Cultist = 50,
+            Traitor = 90, -- Traitors have 50% chance of being a normal traitor
+            Cultist = 10,
         },
 
         AmountTraitors = function (amountPlayers)
             config.TestMode = false
             if amountPlayers > 12 then return 2 end
-            if amountPlayers > 3 then return 1 end            
+            if amountPlayers > 5 then return 1 end            
             print("Not enough players to start traitor mode.")
             return 0
         end,
