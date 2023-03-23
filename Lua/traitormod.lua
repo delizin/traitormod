@@ -48,6 +48,7 @@ Traitormod.RoundStart = function()
     pointsGiveTimer = Timer.GetTime() + Traitormod.Config.ExperienceTimer
     local traitor_chance_roll = math.random()
     Traitormod.Log("Traitor Chance Roll: " .. traitor_chance_roll)
+    Traitormod.Log("Needed to roll under: " .. 1-Traitormod.Config.TraitorChance)
     if traitor_chance_roll <= 1-Traitormod.Config.TraitorChance then
 	Traitormod.Log("No traitor this round.")
 	Traitormod.SelectedGamemode = nil
