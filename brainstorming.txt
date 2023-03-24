@@ -1,36 +1,70 @@
 Swayze Brainstorming:
-Everyone:
-Steal the Captain’s/Security Officer’s/Medic’s ID
 
-The Perfect Heist
-“Convince” the captain to transfer at least 2,000mks to your personal account and survive the round
-Escape from the sub with a crate full of at least 1,000mks worth of sell-only loot, such as moloch bones, and survive the round. If successful, set the crate aside and sell it at the next colony. You receive 50% of the money from the sale.
+Basic traitors beyond simple roles (like traitor medic, traitor mechanic, ect.)
+  "The Perfect Heist"
+  - This role only lasts for a single mission, so make the most of it!
+  (1 of the following)
+  - “Convince” the captain to transfer at least 2,000mks to your personal account. If they resist for a full two minutes, you are allowed to escalate force up to knocking them out. If they die, you fail the role. If the Captain refuses and you have knocked them unconscious, then you can steal their ID and use it to transfer money to yourself at the next station if you survive the round.
+  - Escape from the sub with a crate full of at least 1,000mks worth of sell-only loot, such as moloch bones, and survive the round. If successful, set the crate aside and sell it at the next colony. You receive 50% of the money from the sale.
 
-Person for the Ethical Treatment of Monstrosities
-<Juvenile/Aduly> Monstrosities of type <x> have recently been classified as endangered. Ensure that none are hurt this round.
-Hatch and ensure the safety of 3 eggs
-(long term) Secretly raise <X> dangerous creature to adulthood on board the submarine
+  "Dark Jester" (Asssistant Only)
+  - This role only lasts for a single mission, so make the most of it!
+  - Your brain is warped by dark Cluwne energies. When you speak, you must speak like a goofy clown (if you can't or won't, you fail this role and must turn in your clown badge).
+  - You must wear full Clown attire at all times unless your life is immediately at risk.
+  - Slip at least 5 players with banana peels.
+  - Replace 3 welding fuel tanks in welders with air tanks.
+  - Replace 3 air tanks in diving suits with fuel tanks.
+  (one of the following)
+  - Knock <target> fully unconscious (make sure you can heal them), hide their radio headset and ID, dress them in clown clothing, inject them with a hallucinogen, leave them handcuffed in a public place, then deny all knowledge of the incident.
+  - In a normal voice, count down from 5 and then set off a bomb on the sub without hurting anyone or destroying any items. Regardless of the damage you cause, you must immediately apologize in a sad clown voice. If you do hurt someone or destroy an item, then you fail this role.
+  - Survive the round and escape.
 
-Dark Jester
-Incapacitate another player and steal their identity for 5 minutes
-Set off a dirty bomb on the sub without killing anyone or destroying any items
-Replace 3 welders oxygen tanks/diving suits air tanks with welding/oxygen tanks
-Slip at least 10 players with banana peels
+  "Person for the Ethical Treatment of Monstrosities"
+  - This role lasts until you complete or fail all of your responsibilies, which are listed below:
+  - Hatch 1 egg per round and ensure the creature survives until the next round, at which time you must release it back into the wild to join its family. If someone harms one of your creatures before you release it, you must take bloody vengeance and kill that player before docking at the next station or you fail this role. If you kill the wrong player or cannot prove they harmed the creature via a witness or log verification (subject to moderator's whims) then you fail this role. If you successfully release 3 monstrosities back into the wild, you succceed at this role.
+ - You have been provided with a <random dangerous monster egg>. Secretly raise this dangerous creature to adulthood onboard the submarine before attempting to release it into the wild.
+ - Survive the round and escape.
 
-Upstart Pirate Lord
-Convince one person per round to support you in an upcoming mutiny. If your plot is discovered, you must immediately begin the mutiny.
-(long term) Incite a mutiny against the current captain and become the new captain
+  "Upstart Pirate Lord"
+  - This role is kept until your mission is complete or you resign.
+  - Convince one person per round to support you in an upcoming mutiny. Send them a screenshot of this message and make sure that they acknowledge that they are a part of your mutiny in writing via discord. Once they have agreed in writing to join your plot, they cannot back out or betray you. 
+  - If your plot is discovered, you must immediately begin the mutiny.
+  - Incite a mutiny against the current captain and become the new captain
+  - Survive the round and escape.
 
-Separatist Agitator
-Deduce the identity of the Coalition Spy and eliminate them without anyone noticing
-Eliminate the Cargo (if taken from the opposite faction)
-Frame someone else as the spy (have them handcuffed for 120 seconds for a crime you committed)
+  "Separatist Agitator"
+  - This role is kept until your mission is complete or you resign.
+  - Deduce the identity of the Coalition Spy and eliminate them without anyone noticing. You are only allowed to eliminate one target, and if you eliminate the wrong one, you fail this role (resolve this at the end of the round in which you kill someone).
+  - Eliminate cargo or personnel involved in a Coalition mission
+  - You have been given a <memory card/tablet> containing sensitive cryptographical data. If this object leaves the ship for any reason, you must publicly resign the role. Once per round, you must transmit this code wirelessly to channel <random> or publicly resign the role.
+  - The Separatist Agitator has been given a <memory card/tablet> with a code on it. Obtain the code, then multiply it with your own cypher code and wirelessly transmit the result to channel <random>.
+  - The Captain's locker contains a <memory card/tablet> with a code on it. The captain is required to keep this object in their locker at all times. Obtain the code, then multiply it with your own cypher code and wirelessly transmit the result to channel <random>.
+  - Survive the round and escape.
 
-Coalition Spy
-Deduce the identity of the Coalition Spy and eliminate them without anyone noticing
-Eliminate the Cargo (if taken from the opposite faction)
-Frame someone else as the agitator (have them handcuffed for 120 seconds for a crime you committed)
-Discreetly install a console and send x information to y channel (Could spawn a memory card / pda with some info in the captain’s locker on round start that you’d need to get the information off of, then the game checks for that info on the channel)
+  "Coalition Spy"
+  - This role is kept until your mission is complete or you resign. 
+  - Deduce the identity of the Coalition Spy and eliminate them without anyone noticing. You are only allowed to eliminate one target, and if you eliminate the wrong one, you fail this role (resolve this at the end of the round in which you kill someone).
+  - Eliminate cargo or personnel involved in a Separatist mission
+  - You have been given a <memory card/tablet> containing sensitive cryptographical data. If this object leaves the ship for any reason, you must publicly resign the role. Once per round, you must transmit this code wirelessly to channel <random> or publicly resign the role.
+  - The Separatist Agitator has been given a <memory card/tablet> with a code on it. Obtain the code, then multiply it with your own cypher code and wirelessly transmit the result to channel <random>.
+  - The Captain's locker contains a <memory card/tablet> with a code on it. The captain is required to keep this object in their locker at all times. Obtain the code, then multiply it with your own cypher code and wirelessly transmit the result to channel <random>.
+  - Survive the round and escape.
+
+Rare traitors (much more dangerous, always requires a round restart, selected some % of the time a traitor is rolled (would keep this low, say 10%, by default), chosen randomly from this list. If too much, could do a gentlemens' agreement to simply not play these roles when asssigned):
+  Changeling
+  - Kill everyone aboard the sub, one-by-one. You must take on the identity of the person you kill (clothes, ID, and obscure face) before killing anyone else. When you assume an identity, you may choose to send the player a screenshot of this message. They are now on your side and speak for you. They must try their best to help you achieve your objective. For the hivemind!
+
+  Husk Patient Zero
+  - Kill everyone aboard the sub, including yourself, with a husk infection. Once infected, you can only talk in groans. Long live the Cult!
+  
+  Prophet of Dagon
+  - Kill everyone aboard the sub, including yourself, by sinking it below crush depth. As the ship passes crush depth you must recite a psalm to your dark master on the radio to seal the compact. Once below crush depth the ship's crew need not die from water pressure (sometimes Dagon can use an extra hand), but if any crew manage to escape crush depth, even without the sub, then you have failed. Iä Dagon!
+
+  Separatist Revolutionary
+  - Kill everyone who isn't a fellow Revolutionary. When the round starts, message up to one-quarter of the other players (rounding down, minimum of 1) with a screenshot of this message. They are now your fellow Revolutionaries and are fully loyal to you. Begin sewing the seeds of your revolution. When you are ready, you must give the spoken signal to begin your revolution on channel 0000: <randomly generated phrase>. On the signal, all revolutionaries must don matching outfits, remove their oppressive IDs, and cover their faces. Down with the bourgeoisie pigs!
+  
+  Coalition Nuclear Operative
+  - Kill everyone aboard the sub, including yourself, with a single large detonation synchronized via a signal or chain reaction. You must clearly and slowly count down from 5 to 0 in voice before detonating the explosives.
 
 Suzera Ideas:
 try not to get suspected before your hijink is done
