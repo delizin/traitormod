@@ -55,18 +55,6 @@ config.PointsGainedFromSkill = {
     helm = 9,
 }
 
------ Skill Loss on Death -----
--- Number of permanent skill points to lose on death, 0 to disable
-config.deathSkillLossFlat = 0
--- Percentage of skills to lose on death, 0 means none, 100 means all
--- Can be combined with flat loss
-config.deathSkillLossPercentage = 5.0
--- Can be used to create conditions like "loose 10% of your skill but at least 3 and at most 5"
-config.deathSkillLossMin = 0
-config.deathSkillLossMax = 5
--- Whether to respect starting skill minimum. Deactivation allows skills to drop to 0.
-config.respectSkillMin = true
-
 
 config.PointsLostAfterNoLives = function (x)
     return x * 0.75
@@ -120,13 +108,19 @@ config.GamemodeConfig = {
         LivesGainedFromCrewMissionsCompleted = 0,
 
         TraitorTypeChance = {
-            Traitor = 90, -- Traitors have 50% chance of being a normal traitor
-            Cultist = 10,
+            Traitor = 80, -- Traitors have 50% chance of being a normal traitor
+            Cultist = 20,
         },
 
         AmountTraitors = function (amountPlayers)
             config.TestMode = false
-            if amountPlayers > 12 then return 2 end
+            if amountPlayers > 12 then
+                if .5 > math.random() then
+                    return 2 
+                else
+                    return 1
+                end
+            end
             if amountPlayers > 5 then return 1 end            
             print("Not enough players to start traitor mode.")
             return 0
@@ -137,7 +131,7 @@ config.GamemodeConfig = {
         TraitorFilter = function (client)
             if client.Character.TeamID ~= CharacterTeamType.Team1 then return 0 end
             if not client.Character.IsHuman then return 0 end
-            if client.Character.HasJob("captain") then return 0 end
+            if client.Character.HasJob("captain") then return 0.5 end
             if client.Character.HasJob("securityofficer") then return 0.5 end
             if client.Character.HasJob("medicaldoctor") then return 0.5 end
 
@@ -168,21 +162,21 @@ config.RoleConfig = {
     },
 
     Cultist = {
-        SubObjectives = {"Assassinate", "Kidnap", "TurnHusk", "DestroyCaly"},
+        SubObjectives = {"Assassinate", "Kidnap", "TurnHusk", "TrippingBalls", "UpsetTummy"},
         MinSubObjectives = 2,
         MaxSubObjectives = 3,
 
         NextObjectiveDelayMin = 30,
         NextObjectiveDelayMax = 60,
 
-        TraitorBroadcast = true,           -- traitors can broadcast to other traitors using !tc
+        TraitorBroadcast = false,           -- traitors can broadcast to other traitors using !tc
         TraitorBroadcastHearable = false,  -- if true, !tc will be hearable in the vicinity via local chat
-        TraitorDm = true,                  -- traitors can send direct messages to other players using !tdm
+        TraitorDm = false,                  -- traitors can send direct messages to other players using !tdm
 
         -- Names, None
         TraitorMethodCommunication = "Names",
 
-        SelectBotsAsTargets = true,
+        SelectBotsAsTargets = false,
         SelectPiratesAsTargets = false,
     },
 
@@ -191,25 +185,26 @@ config.RoleConfig = {
     },
 
     Traitor = {
-        SubObjectives = {"StealCaptainID", "Survive", "Kidnap", "PoisonCaptain"},
+        SubObjectives = {"Mutiny", "StealCaptainID", "Survive", "Kidnap", "PoisonCaptain", "TrippingBalls", "UpsetTummy"},
         MinSubObjectives = 2,
         MaxSubObjectives = 3,
 
         NextObjectiveDelayMin = 30,
         NextObjectiveDelayMax = 60,
 
-        TraitorBroadcast = true,           -- traitors can broadcast to other traitors using !tc
+        TraitorBroadcast = false,           -- traitors can broadcast to other traitors using !tc
         TraitorBroadcastHearable = false,  -- if true, !tc will be hearable in the vicinity via local chat
-        TraitorDm = true,                  -- traitors can send direct messages to other players using !tdm
+        TraitorDm = false,                  -- traitors can send direct messages to other players using !tdm
 
         -- Names, Codewords, None
         TraitorMethodCommunication = "Names",
 
-        SelectBotsAsTargets = true,
+        SelectBotsAsTargets = false,
         SelectPiratesAsTargets = false,
         SelectUniqueTargets = true,     -- every traitor target can only be chosen once per traitor (respawn+false -> no end)
         PointsPerAssassination = 100,
     },
+
 }
 
 config.ObjectiveConfig = {
@@ -232,6 +227,11 @@ config.ObjectiveConfig = {
         Seconds = 100,
     },
 
+    Mutiny = {
+        AmountPoints = 3000,
+        Seconds = 300,
+    }
+
     PoisonCaptain = {
         AmountPoints = 1600,
     },
@@ -247,6 +247,14 @@ config.ObjectiveConfig = {
 
     DestroyCaly = {
         AmountPoints = 500,
+    },
+
+    TrippingBalls = {
+        AmountPoints = 250,
+    },
+
+    UpsetTummy = {
+        AmountPoints = 250,
     },
 }
 
@@ -271,7 +279,7 @@ config.RandomEventConfig = {
 }
 
 config.PointShopConfig = {
-    Enabled = false,
+    Enabled = true,
     DeathTimeoutTime = 120,
     ItemCategories = {
         dofile(Traitormod.Path .. "/Lua/config/pointshop/cultist.lua"),
