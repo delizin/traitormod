@@ -10,6 +10,11 @@ function objective:Start(target)
         return false
     end
 
+    if self.Character.IsCaptain then
+        Traitormod.Debug("StealCaptainID: Captain cannot steal captain's ID.")
+        return false
+    end
+
     self.Text = Traitormod.Language.ObjectiveStealCaptainID
 
     return true

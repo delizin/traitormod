@@ -12,6 +12,11 @@ function objective:Start(target)
     if self.Target == nil then
         return false
     end
+    
+    if self.Character.IsCaptain then
+        Traitormod.Debug("Mutiny: Captain cannot mutiny against self.")
+        return false
+    end
 
     self.TargetName = target.Name
 
