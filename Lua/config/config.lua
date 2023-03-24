@@ -230,7 +230,7 @@ config.ObjectiveConfig = {
     Mutiny = {
         AmountPoints = 3000,
         Seconds = 300,
-    }
+    },
 
     PoisonCaptain = {
         AmountPoints = 1600,
