@@ -184,7 +184,7 @@ function role:OtherGreet()
 end
 
 function role:FilterTarget(objective, character)
-    if not self.SelectBotsAsTargets and character.IsBot then return false end
+    if not self.SelectBotsAsTargets and character.IsBot and not Traitormod.Config.DebugMode then return false end
 
     if objective.Name == "Assassinate" and self.SelectUniqueTargets then
         for key, value in pairs(Traitormod.RoleManager.FindCharactersByRole("Traitor")) do
