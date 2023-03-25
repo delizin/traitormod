@@ -10,9 +10,7 @@ function objective:Start(target)
         return false
     end
 
-    self.TargetName = Traitormod.GetJobString(self.Target)
-
-    self.Text = string.format("Give %s more than 80% nausea.", self.TargetName)
+    self.Text = string.format("Give %s serious nausea.", self.Target.Name)
 
     return true
 end
