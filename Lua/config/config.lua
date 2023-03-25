@@ -2,8 +2,6 @@ local config = {}
 config.DebugLogs = true
 config.DebugMode = false
 
-config.TraitorChance = 0.15
-
 ----- USER FEEDBACK -----
 config.Language = "English"
 config.SendWelcomeMessage = true
