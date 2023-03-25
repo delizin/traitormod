@@ -1,26 +1,68 @@
-Swayze Brainstorming:
+Swayze Brainstorming
+
+Traitor Role Terms
+  "Objective success/fail"
+    - Traitor succeeds/fails a specific objective. Could be a minor bonus (10% of mission earnings per?). Not paid unless the role succeeds.
+  "Role success/fail"
+    - Traitor succeeds/fails the main objective (20% of mission earnings per?). Traitor has to succeed in their role to get any payout.
+  "Role foul"
+    - Yellow card/Too much damage. Could be from going too hard or just bad luck/planning/communication.
+    - Role Foul is the stat to track in terms of correcting and if necessarily penalizing unruly behavior. If we ever wanted to automate this, I'd suggest at the end of the round the traitor chooses which objectives they think they completed, then the final proposal appears as a single vote if the traitor role successed, failed, or fouled. If that's too complex, perhaps just do the single vote which includes (traitor role success 30%, traitor role success 20%, traitor role success 10%, role fail, role foul), display the traitor objectives for everyone, and allow the traitor to make their case in voice. It should default to role success 10% to encourage people to participate.
+
+Innocence System 
+  Disclaimer: Any disagreements about rule interpretation, intent, or otherwise should be settled by a simple vote of those online in a timely fashion. This game involves quick thinking and deception and will involve many, many poor collective decisions. This shouldn't be taken personally - if you feel you were wronged, try not to carry it with you into the next round. We are all doing our best and trying to have fun.
+
+  Voting Suggestion
+  We could utilize the instant voting system for crew member Role Fouls if there is some way to specify a custom entry. Example: I kill bootman because I think he's a traitor but he's not, so he submits a vote to assign Swayze a role foul with the custom text "Swayze killed me while I was Innocent
+
+  This system is designed to be simple, encourage communication, prevent too much friendly fire, and still be gameable. The Captain and Security have additional leway in this system and should be duly resented for it. Traitors are encouraged to exploit this system to the fullest. 
+    "Innocent"
+      - Everyone on the ship starts out innocent.
+      - Harming or arresting an innocent person counts as a Role Foul.
+    "Sus"
+      - Anyone can declare another person "Sus" at any time. This involves stating who and what they did in radio 0000 voice.. This step must be completed fully before the person is considered Sus, otherwise they are still considered innocent and any action against them is grounds for a Role Foul. No radio = no ability to declare someone Sus.
+      - Anyone directly involved in the death or knocking unconscious of a Sus person recieves a Role Foul.
+      - Once a person is Sus, they can be ragdolled, handcuffed, and searched on the spot. The crew has 1 minute to do this, after which the person is no longer considered Sus. 
+      - The Captain and Security Officers can each arrest and lock one Sus person at a time inside a room for up to 5 minutes while the ship crew undertakes a longer search or investigation. They must remain in the room with the person for the duration. This can be done once per arrester per person per round (You could lock up someone twice, but a different person would have to do it each time).
+    "Hostile"
+      - If a person declared Sus doesn't cooperate, they can be declared hostile. Declaring someone hostile requires stating who they are and what they did in radio 0000 voice.
+      - Declaring someone hostile requires another person seconding it on radio 0000 voice (unless there are 3 or fewer people left).
+      - Once per round, the Captain can unilaterally declare someone Hostile.
+      - Crewmembers can take agressive action against Hostile players up to knocking them out. The exception to this is self-defense: if a normal crewmember is actively being attacked, then they can fight back however they like.
+      - If the crew unanimously votes for it, they can make a Hostile player KOS.
+      - Once per round, a Hostile player may surrender by announcing it on radio 0000 voice and dropping limp to the ground. They are then considered Sus and must remain limp until they are restrained. False surrenders are allowed but make the false surrenderer automatically and permanently KOS.
 
 Basic profession traitor roles (maybe like 50% odds each time?)
-  Traitor Assistant - "Prankster"
-  (Randomly assign 3 of the following)
+  Traitor Assistant - "Prankster" (perhaps other classes also have a small chance of getting this role)
+  (Randomly assign from the following)
   - Ping the sonar unnecessarily until the captain tells you to stop. Ping it at least <x> times more after that.
   - In a fight, "accidently" shoot someone once with a non-lethal projectile.
   - Go limp until you run out of oxygen and pass out at an inconvenient time. If you die, you fail this role.
-  - Hide the drone somewhere out of signal range for at least 5 minutes. If the drone is lost, you fail this role. 
-  - Ram the drone into the Captain's windshield at high speed while they are piloting to complete this objective.
-  - "Accidently" leave a single vial of explosive mineral, such as potassium, in a container on the ship that is likely to flood. If anyone dies or any items (other than the vial) are destroyed as a result of this tomfoolery, you fail this role.
+  - Hide the drone somewhere out of signal range for at least 5 minutes. If the drone is lost, you fail this role. Alternatively, ram the drone into the Captain's windshield hard enough to disable it while they are piloting to complete this objective.
+  - "Accidently" leave a single vial of explosive mineral, such as potassium, in a container on the ship that is likely to flood. If any items (other than the vial) are destroyed as a result of this tomfoolery, you fail this objective.
+  - Stun someone with a stun gun, flashbang, or other device while they are on their station. If you are recognized, you fail this objective.
   - Steal the <Captain/Doctor/Security Officer/Mechanic's/Engineer's> ID for at least 5 minutes.
+  - Slip 3 people with Banana Peels
+  - Replace 1 welding fuel tank in welders with air tanks and 1 air tank in diving suits with fuel tanks.
+  - 1 EMP grenade has been delivered to your inventory. Activate it this round aboard the ship in the times and places of your choosing to complete this objective. While doing so, if you are recognized, you fail this objective.
+  - 1 Incendiary grenade has been delivered to your inventory. Without being noticed, start a fire on board the ship in the times and places of your choosing to complete this objective. If you are recognized, you fail this objective.
+  - If you kill anyone or destroy items in excess of 1000mks, you fail this role.
 
   Traitor Engineer - ""
   - Stealthily rewire and switch any two control inputs on the ships. If you cannot reverse what you've done in a timely fashion, you fail this role. 
   - Create a useless and annoying circuit. If someone complains about it, you have completed this objective.
   - Electronically lock <target> in a room or out of the ship for at least 60 seconds. They must be aware they cannot leave the room before the timer starts. If they break out, it doesn't count. If you force them to break out 3 times, you have completed this objective.
-  - Melt the reactor down without hurting anyone or destroying any items. If the round ends within 10 minutes of the meltdown, you fail this role.
-  - Run the reactor for at least 5 minutes with at least 1 empty fuel rod where there should be 1 full one.
-  - 3 EMP grenades have been delivered to your inventory. Activate them all this round aboard the ship in the times and places of your choosing to complete this objective.
+  - Melt the reactor down without hurting anyone or destroying any items. If you kill anyone or destroy any items, you fail this role. If the round ends within 10 minutes of the meltdown, you fail this role.
+  - Run the reactor for at least 5 minutes with at least 1 empty fuel rod where there should be 1 full one. If nobody fixes the issue in that time, you have completed this objective.
+  - 3 EMP grenades have been delivered to your inventory. Without being noticed, activate them all this round aboard the ship in the times and places of your choosing to complete this objective. If you are spotted doing so, you fail this objective.
+  - If you kill anyone or destroy items in excess of 1000mks, you fail this role.
 
   Traitor Mechanic - ""
-  - Make up a mechanical issue as an excuse to <x>
+  - Melt the reactor down without hurting anyone or destroying any items. If you kill anyone or destroy any items, you fail this role. If the round ends within 10 minutes of the meltdown, you fail this role.
+  - Break the engine twice this round at an inopportune time. Someone other than you must fix it.
+  - 3 Incendiary grenades have been delivered to your inventory. Without being noticed, start 3 fires on board the ship in the times and places of your choosing to complete this objective. If anyone dies from the fire or you are spotted, you fail this role.
+  - 2 40mm Nuclear Grenades have been delivered to your inventory. Shoot the submarine with or detonate onboard both grenades this round without killing anyone or destroying any items to complete this objective. If you are spotted, you fail this objective. 
+  - If you kill anyone or destroy items in excess of 1000mks, you fail this role.
 
   Traitor Security - "Dirty Cop"
   - Perform "routine" inspections of at least 5 other players over the course of the round. Each time, take an item from their inventory and put it in your secure locker.
@@ -29,18 +71,28 @@ Basic profession traitor roles (maybe like 50% odds each time?)
   - Extort 200mks off of <target>. If they refuse, arrest them for posession of contraband. Plant it on them during the arrest. Lock them handcuffed in a room for 5 minutes.
   - Extort 200mks off of <target>. If they refuse, either stun them 5 times or knock them unconscious once without anyone seeing you do it. If they die after you knock them unconscious, you fail the round.
   - Turn <target> into an informant. Inform them that <target 2> is a <traitor role> and set them to watching them. Tell them to report their findings to you and the captain.
+  - If you kill anyone or destroy items in excess of 1000mks, you fail this role.
 
   Traitor Doctor - ""
   - Countdown before healing someone
   - "Accidently" inject someone with poison while healing them. Keep them in an unconscious poisoned state without them dying for at least 60 seconds. If they die, you fail the role.
+  - If you kill anyone or destroy items in excess of 1000mks, you fail this role.
 
   Traitor Captain - ""
   - Excessively punitive duties
   - If the ship has a drone, shuttle someone to the objective and "accidently" <take a circuitous path, colliding with <x> objects along the way>/<make up a reason to strand them in the drone for at least 120 seconds>
+  - "Accidently" strand someone outside the sub for at least 2 minutes after they notice they've been left behind. If they are killed by hostile fauna during this time, there is no penalty. You cannot strand someone for more than 5 minutes.
+  - If you kill anyone or destroy items in excess of 1000mks, you fail this role.
 
 Basic traitors beyond simple roles (like traitor medic, traitor mechanic, ect.)
   "Gossip Girl"
   - Spread intrigue, frame people
+  
+  "Drug Lord"
+  - Make drugs
+  
+  "Mad Scientist"
+  - Detonate a Piezo Crystal too close or otherwise endanger the ship with a Europan environmental hazard. You must kill 1 person in this way, but if you kill more than one, you fail the round.
 
   "The Perfect Heist"
   - This role only lasts for a single mission, so make the most of it!
@@ -92,19 +144,19 @@ Basic traitors beyond simple roles (like traitor medic, traitor mechanic, ect.)
   - Survive the round and escape.
 
 Rare traitors (much more dangerous, always requires a round restart, selected some % of the time a traitor is rolled (would keep this low, say 10%, by default), chosen randomly from this list. If too much, could do a gentlemens' agreement to simply not play these roles when asssigned):
-  Changeling
+  "Changeling"
   - Kill everyone aboard the sub, one-by-one. You must take on the identity of the person you kill (clothes, ID, and obscure face) before killing anyone else. When you assume an identity, you may choose to send the player a screenshot of this message. They are now on your side and speak for you. They must try their best to help you achieve your objective. For the hivemind!
 
-  Husk Patient Zero
+  "Husk Patient Zero"
   - Kill everyone aboard the sub, including yourself, with a husk infection. Once infected, you can only talk in groans. Long live the Cult!
   
-  Prophet of Dagon
+  "Prophet of Dagon"
   - Kill everyone aboard the sub, including yourself, by sinking it below crush depth. As the ship passes crush depth you must recite a psalm to your dark master on the radio to seal the compact. Once below crush depth the ship's crew need not die from water pressure (sometimes Dagon can use an extra hand), but if any crew manage to escape crush depth, even without the sub, then you have failed. Iä Dagon!
 
-  Separatist Revolutionary
+  "Separatist Revolutionary"
   - Kill everyone who isn't a fellow Revolutionary. When the round starts, message up to one-quarter of the other players (rounding down, minimum of 1) with a screenshot of this message. They are now your fellow Revolutionaries and are fully loyal to you. Begin sewing the seeds of your revolution. When you are ready, you must give the spoken signal to begin your revolution on channel 0000: <randomly generated phrase>. On the signal, all revolutionaries must don matching outfits, remove their oppressive IDs, and cover their faces. Down with the bourgeoisie pigs!
   
-  Coalition Nuclear Operative
+  "Coalition Nuclear Operative"
   - Kill everyone aboard the sub, including yourself, with a single large detonation synchronized via a signal or chain reaction. You must clearly and slowly count down from 5 to 0 in voice before detonating the explosives.
 
 Suzera Ideas:
