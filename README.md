@@ -3,6 +3,7 @@ Modified version of Evilfactory's Traitermod to work in multiplayer campaign mod
 __**Mod development resources**__
 
 *Barotrauma Source*: https://github.com/Regalis11/Barotrauma
+
 *Lua for Barotrauma Docs*: https://evilfactory.github.io/LuaCsForBarotrauma/lua-docs/
 
 
