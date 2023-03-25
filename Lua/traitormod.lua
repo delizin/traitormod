@@ -137,6 +137,10 @@ Hook.Patch("Barotrauma.Networking.RespawnManager", "ReduceCharacterSkills", func
     return false 
 end, Hook.HookMethodType.Before)
 
+Hook.Patch("Barotrauma.CharacterInfo", "GiveExperience", function (instance, ptable)
+    ptable["amount"] = Int32(ptable["amount"] * Traitormod.Config.GlobalExperienceModifier)
+end, Hook.HookMethodType.Before)
+
 
 Hook.Add("roundStart", "Traitormod.RoundStart", function()
     Traitormod.RoundStart()

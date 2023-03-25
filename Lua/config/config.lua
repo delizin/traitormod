@@ -45,6 +45,7 @@ config.RemoveSkillBooks = false
 config.NerfSwords = false
 config.EnablePointExp = false    -- Enables Setting Exp to Point Value at Match Start
 
+config.GlobalExperienceModifier = 0.5
 config.FreeExperience = 0         -- temporary experience given every ExperienceTimer seconds
 config.ExperienceTimer = 120
 
@@ -125,7 +126,7 @@ config.GamemodeConfig = {
                 end
             end
             if amountPlayers > 5 then return 1 end
-                     
+
             print("Not enough players to start traitor mode.")
             return 0
         end,
