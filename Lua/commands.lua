@@ -69,6 +69,20 @@ Traitormod.AddCommand({"!roles", "!traitors"}, function (client, args)
     return true
 end)
 
+Traitormod.AddCommand("!traitoralive", function (client, args)
+    if not client.HasPermission(ClientPermissions.ConsoleCommands) then return end
+
+    for _, character in pairs(Traitormod.RoleManager.FindAntagonists()) do
+        if not character.IsDead then
+            Traitormod.SendMessage(client, Traitormod.Language.TraitorsAlive)
+            return true
+        end
+    end
+
+    Traitormod.SendMessage(client, Traitormod.Language.AllTraitorsDead)
+    return true
+end)
+
 Traitormod.AddCommand("!toggletraitor", function (client, args)
     local text = Traitormod.Language.CommandNotActive
 
@@ -467,7 +481,7 @@ Traitormod.AddCommand({"!locatesub", "!locatesubmarine"}, function (client, args
         return true
     end
 
-    if client.Character.IsHuman then
+    if client.Character.IsHuman and client.Character.TeamID == CharacterTeamType.Team1 then
         Traitormod.SendMessage(client, "Only monsters are able to use this command.")
         return true
     end

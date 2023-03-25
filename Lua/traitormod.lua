@@ -49,16 +49,19 @@ Traitormod.RoundStart = function()
 
     Traitormod.CodeWords = Traitormod.SelectCodeWords()
 
-    -- give XP to players based on stored points
+
     for key, value in pairs(Client.ClientList) do
         if value.Character ~= nil then
             Traitormod.SetData(value, "Name", value.Character.Name)
         end
 
-        if not value.SpectateOnly then
-            Traitormod.LoadExperience(value)
-        else
-            Traitormod.Debug("Skipping load experience for spectator " .. value.Name)
+        -- give XP to players based on stored points
+        if Traitormod.Config.EnablePointExp then
+            if not value.SpectateOnly then
+                Traitormod.LoadExperience(value)
+            else
+                Traitormod.Debug("Skipping load experience for spectator " .. value.Name)
+            end
         end
 
         -- Send Welcome message
@@ -79,21 +82,46 @@ Traitormod.RoundStart = function()
 
 
     Traitormod.SelectedGamemode = nil
-
-    if LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.PvPMode") then
-        Traitormod.SelectedGamemode = Traitormod.Gamemodes.PvP:new()
-    elseif LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.CampaignMode") then
-        Traitormod.SelectedGamemode = Traitormod.Gamemodes.Gamemode:new()
-    elseif Game.ServerSettings.TraitorsEnabled == 1 and math.random() > 0.5 then
+    
+    if Traitormod.Config.DebugMode then
+        Traitormod.Log("Debug Mode Enabled: Traitor Gamemode forced!")
         Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
-    elseif Game.ServerSettings.TraitorsEnabled == 2 then
-        Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
+    else
+        if LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.PvPMode") then
+            Traitormod.SelectedGamemode = Traitormod.Gamemodes.PvP:new()
+        elseif LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.CampaignMode") then
+            if Level.IsLoadedOutpost then
+                Traitormod.Log("Campaign - No Traitors on Outpost") -- TODO: Implement Outpost Specific Traitor Gamemode
+                Traitormod.SelectedGamemode = Traitormod.Gamemodes.Gamemode:new()
+                return
+            end
+            if Game.ServerSettings.TraitorsEnabled == 1 then
+                local traitor_chance_roll = math.random() -- setting TraitorChance to for example 0.7 means: 70% chance *for* traitor
+                Traitormod.Log("Campaign - Traitor chance roll:"..traitor_chance_roll..", configured chance:"..Traitormod.Config.TraitorChance)
+                if Traitormod.Config.TraitorChance > math.random() then
+                    Traitormod.Log("Campaign - Rolled for active traitor gamemode")
+                    Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
+                else
+                    Traitormod.Log("Campaign - Rolled for regular campaign gamemode")
+                    Traitormod.SelectedGamemode = Traitormod.Gamemodes.Gamemode:new()
+                end
+            elseif Game.ServerSettings.TraitorsEnabled == 2 then
+                Traitormod.Log("Campaign - Guaranteed traitor gamemode")
+                Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
+            else
+                Traitormod.Log("Campaign - Guaranteed regular campaign gamemode")
+                Traitormod.SelectedGamemode = Traitormod.Gamemodes.Gamemode:new()
+            end
+        else
+            Traitormod.SelectedGamemode = nil
+        end
     end
 
     if Traitormod.SelectedGamemode == nil then
         Traitormod.Log("No gamemode selected!")
         return
     end
+    
 
     Traitormod.Log("Starting gamemode " .. Traitormod.SelectedGamemode.Name)
 
@@ -101,6 +129,14 @@ Traitormod.RoundStart = function()
         Traitormod.SelectedGamemode:Start()
     end
 end
+    
+Hook.Patch("Barotrauma.Networking.RespawnManager", "ReduceCharacterSkills", function (instance, ptable)
+    Traitormod.Log("Respawning Character with No Penalties.")
+    ptable.PreventExecution = true
+    -- return anything to prevent vanilla ReduceCharacterSkills from running
+    return false 
+end, Hook.HookMethodType.Before)
+
 
 Hook.Add("roundStart", "Traitormod.RoundStart", function()
     Traitormod.RoundStart()
@@ -175,7 +211,9 @@ Hook.Add("characterCreated", "Traitormod.CharacterCreated", function(character)
 
         if client ~= nil then
             -- set experience of respawned character to stored value - note initial spawn may not call this hook (on local server)
-            Traitormod.LoadExperience(client)
+                if Traitormod.Config.EnablePointExp then
+                    Traitormod.LoadExperience(client)
+                end
         else
             Traitormod.Error("Loading experience on characterCreated failed! Client was nil after 1sec")
         end
@@ -388,6 +426,11 @@ Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/t
 Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/destroycaly.lua"))
 Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/crew/killmonsters.lua"))
 Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/crew/repair.lua"))
+
+-- Custom Objectives --
+Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/trippingballs.lua"))
+Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/upsettummy.lua"))
+Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/mutiny.lua"))
 
 Traitormod.RoleManager.AddRole(dofile(Traitormod.Path .. "/Lua/roles/role.lua"))
 Traitormod.RoleManager.AddRole(dofile(Traitormod.Path .. "/Lua/roles/antagonist.lua"))

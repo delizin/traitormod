@@ -23,11 +23,6 @@ function role:AssasinationLoop(first)
                 Traitormod.SendMessage(client, Traitormod.Language.AssassinationNextTarget, "")
                 Traitormod.Stats.AddClientStat("TraitorMainObjectives", client, 1)
             end
-
-            local delay = math.random(this.NextObjectiveDelayMin, this.NextObjectiveDelayMax) * 1000
-            Timer.Wait(function(...)
-                this:AssasinationLoop()
-            end, delay)
         end
 
 
@@ -130,7 +125,7 @@ function role:ObjectivesToString()
         end
     end
     if #primary == 0 then
-        primary(" > No objectives yet... Stay furtile.")
+        primary(" > No objectives yet... Stay futile.")
     end
 
     return primary:concat("\n"), secondary:concat("\n")

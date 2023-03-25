@@ -117,6 +117,8 @@ function gm:AwardCrew()
 end
 
 function gm:CheckHandcuffedTraitors(character)
+    if character.IsDead then return end
+    
     local item = character.Inventory.GetItemInLimbSlot(InvSlotType.RightHand)
     if item ~= nil and item.Prefab.Identifier == "handcuffs" then
         for key, value in pairs(Client.ClientList) do
@@ -200,10 +202,10 @@ function gm:SelectAntagonists(role)
             -- valid traitor choices must be ingame, player was spawned before (has a character), is no spectator
             if value.InGame and value.Character and not value.SpectateOnly then
                 -- filter by config
-                if this.TraitorFilter(value) and Traitormod.GetData(value, "NonTraitor") ~= true then
+                if this.TraitorFilter(value) > 0 and Traitormod.GetData(value, "NonTraitor") ~= true then
                     -- players are alive or if respawning is on and config allows dead traitors (not supported yet)
                     if not value.Character.IsDead then
-                        clientWeight[value] = Traitormod.GetData(value, "Weight") or 0
+                        clientWeight[value] = (Traitormod.GetData(value, "Weight") or 0) * this.TraitorFilter(value)
                         traitorChoices = traitorChoices + 1
                     end
                 end

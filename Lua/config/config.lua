@@ -1,5 +1,8 @@
 local config = {}
 config.DebugLogs = true
+config.DebugMode = false
+
+config.TraitorChance = 0.15
 
 ----- USER FEEDBACK -----
 config.Language = "English"
@@ -17,7 +20,7 @@ config.Codewords = {
 
 config.AmountCodeWords = 2
 
-config.OptionalTraitors = true        -- players can use !toggletraitor
+config.OptionalTraitors = false        -- players can use !toggletraitor
 config.RagdollOnDisconnect = false
 config.EnableControlHusk = false     -- EXPERIMENTAL: enable to control husked character after death
 
@@ -29,20 +32,22 @@ config.TraitorChance = 0.15
 config.OverrideRespawnSubmarine = false
 config.RespawnSubmarineFile = "Content/Submarines/Selkie.sub"
 config.RespawnText = "Respawn in %s seconds."
+config.RespawnTeam = CharacterTeamType.Team1
 
 ----- POINTS + LIVES -----
 config.PermanentPoints = true      -- sets if points and lives will be stored in and loaded from a file
 config.RemotePoints = nil
 config.RemoteServerAuth = {}
-config.PermanentStatistics = true  -- sets if statistics be stored in and loaded from a file
-config.MaxLives = 5
+config.PermanentStatistics = false  -- sets if statistics be stored in and loaded from a file
+config.MaxLives = 1
 config.MinRoundTimeToLooseLives = 180
-config.RespawnedPlayersDontLooseLives = true
-config.MaxExperienceFromPoints = 100000     -- if not nil, this amount is the maximum experience players gain from stored points (30k = lvl 10 | 38400 = lvl 12)
-config.RemoveSkillBooks = true
+config.RespawnedPlayersDontLooseLives = false
+config.MaxExperienceFromPoints = 0     -- if not nil, this amount is the maximum experience players gain from stored points (30k = lvl 10 | 38400 = lvl 12)
+config.RemoveSkillBooks = false
 config.NerfSwords = false
+config.EnablePointExp = false    -- Enables Setting Exp to Point Value at Match Start
 
-config.FreeExperience = 250         -- temporary experience given every ExperienceTimer seconds
+config.FreeExperience = 0         -- temporary experience given every ExperienceTimer seconds
 config.ExperienceTimer = 120
 
 config.PointsGainedFromSkill = {
@@ -53,12 +58,17 @@ config.PointsGainedFromSkill = {
     helm = 9,
 }
 
+
 config.PointsLostAfterNoLives = function (x)
     return x * 0.75
 end
 
 config.AmountExperienceWithPoints = function (x)
-    return x
+    if config.EnablePointExp then
+    	return x
+    else
+	return 0
+    end
 end
 
 -- Give weight based on the logarithm of experience
@@ -72,7 +82,7 @@ end
 config.GamemodeConfig = {
     Secret = {
         EndOnComplete = true,           -- end round everyone but traitors are dead
-        EnableRandomEvents = true,
+        EnableRandomEvents = false,
         EndGameDelaySeconds = 15,
 
         TraitorSelectDelayMin = 120,
@@ -97,34 +107,41 @@ config.GamemodeConfig = {
             ClearAlienRuins = 2000,
             Default = 1000,
         },
-        PointsGainedFromCrewMissionsCompleted = 1000,
-        LivesGainedFromCrewMissionsCompleted = 1,
+        PointsGainedFromCrewMissionsCompleted = 0,
+        LivesGainedFromCrewMissionsCompleted = 0,
 
         TraitorTypeChance = {
-            Traitor = 90, -- Traitors have 90% chance of being a normal traitor
-            Cultist = 10,
+            Traitor = 80, -- Traitors have 80% chance of being a normal traitor
+            Cultist = 20,
         },
 
         AmountTraitors = function (amountPlayers)
-            config.TestMode = false
-            if amountPlayers > 11 then return 2 end            
-            if amountPlayers > 5 then return 1 end
-            if amountPlayers == 1 then 
-                Traitormod.SendMessageEveryone("1P testing mode - no points can be gained or lost") 
-                config.TestMode = true
-                return 1
+            config.TestMode = false -- ??
+            if config.DebugMode then return 1 end
+
+            if amountPlayers > 12 then
+                if .5 > math.random() then
+                    return 2 
+                else
+                    return 1
+                end
             end
+            if amountPlayers > 5 then return 1 end
+                     
             print("Not enough players to start traitor mode.")
             return 0
         end,
 
+        -- 0 = 0% chance
+        -- 1 = 100% chance
         TraitorFilter = function (client)
-            if client.Character.TeamID ~= CharacterTeamType.Team1 then return false end
-            if not client.Character.IsHuman then return false end
-            if client.Character.HasJob("captain") then return false end
-            if client.Character.HasJob("securityofficer") then return false end
+            if client.Character.TeamID ~= CharacterTeamType.Team1 then return 0 end
+            if not client.Character.IsHuman then return 0 end
+            if client.Character.HasJob("captain") then return 0.5 end
+            if client.Character.HasJob("securityofficer") then return 0.5 end
+            if client.Character.HasJob("medicaldoctor") then return 0.5 end
 
-            return true
+            return 1
         end
     },
 
@@ -132,7 +149,10 @@ config.GamemodeConfig = {
         EnableRandomEvents = false, -- most events are coded to only affect the main submarine
         WinningPoints = 1000,
         WinningDeadPoints = 500,
+        MinimumPlayersForPoints = 4,
         ShowSonar = true,
+        IdCardAllAccess = true,
+        CrossTeamCommunication = true,
     },
 }
 
@@ -148,21 +168,21 @@ config.RoleConfig = {
     },
 
     Cultist = {
-        SubObjectives = {"Assassinate", "Kidnap", "TurnHusk", "DestroyCaly"},
+        SubObjectives = {"Assassinate", "Kidnap", "TurnHusk", "TrippingBalls", "UpsetTummy"},
         MinSubObjectives = 2,
         MaxSubObjectives = 3,
 
         NextObjectiveDelayMin = 30,
         NextObjectiveDelayMax = 60,
 
-        TraitorBroadcast = true,           -- traitors can broadcast to other traitors using !tc
+        TraitorBroadcast = false,           -- traitors can broadcast to other traitors using !tc
         TraitorBroadcastHearable = false,  -- if true, !tc will be hearable in the vicinity via local chat
-        TraitorDm = true,                  -- traitors can send direct messages to other players using !tdm
+        TraitorDm = false,                  -- traitors can send direct messages to other players using !tdm
 
         -- Names, None
         TraitorMethodCommunication = "Names",
 
-        SelectBotsAsTargets = true,
+        SelectBotsAsTargets = false,
         SelectPiratesAsTargets = false,
     },
 
@@ -171,25 +191,26 @@ config.RoleConfig = {
     },
 
     Traitor = {
-        SubObjectives = {"StealCaptainID", "Survive", "Kidnap", "PoisonCaptain"},
+        SubObjectives = {"Mutiny", "StealCaptainID", "Survive", "Kidnap", "PoisonCaptain", "TrippingBalls", "UpsetTummy"},
         MinSubObjectives = 2,
         MaxSubObjectives = 3,
 
         NextObjectiveDelayMin = 30,
         NextObjectiveDelayMax = 60,
 
-        TraitorBroadcast = true,           -- traitors can broadcast to other traitors using !tc
+        TraitorBroadcast = false,           -- traitors can broadcast to other traitors using !tc
         TraitorBroadcastHearable = false,  -- if true, !tc will be hearable in the vicinity via local chat
-        TraitorDm = true,                  -- traitors can send direct messages to other players using !tdm
+        TraitorDm = false,                  -- traitors can send direct messages to other players using !tdm
 
         -- Names, Codewords, None
         TraitorMethodCommunication = "Names",
 
-        SelectBotsAsTargets = true,
+        SelectBotsAsTargets = false,
         SelectPiratesAsTargets = false,
         SelectUniqueTargets = true,     -- every traitor target can only be chosen once per traitor (respawn+false -> no end)
         PointsPerAssassination = 100,
     },
+
 }
 
 config.ObjectiveConfig = {
@@ -212,6 +233,11 @@ config.ObjectiveConfig = {
         Seconds = 100,
     },
 
+    Mutiny = {
+        AmountPoints = 3000,
+        Seconds = 300,
+    },
+
     PoisonCaptain = {
         AmountPoints = 1600,
     },
@@ -227,6 +253,14 @@ config.ObjectiveConfig = {
 
     DestroyCaly = {
         AmountPoints = 500,
+    },
+
+    TrippingBalls = {
+        AmountPoints = 250,
+    },
+
+    UpsetTummy = {
+        AmountPoints = 250,
     },
 }
 

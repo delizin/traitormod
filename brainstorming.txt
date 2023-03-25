@@ -1,0 +1,146 @@
+Swayze Brainstorming:
+
+Basic profession traitor roles (maybe like 50% odds each time?)
+  Traitor Assistant - "Prankster"
+  (Randomly assign 3 of the following)
+  - Ping the sonar unnecessarily until the captain tells you to stop. Ping it at least <x> times more after that.
+  - In a fight, "accidently" shoot someone once with a non-lethal projectile.
+  - Go limp until you run out of oxygen and pass out at an inconvenient time. If you die, you fail this role.
+  - Hide the drone somewhere out of signal range for at least 5 minutes. If the drone is lost, you fail this role. 
+  - Ram the drone into the Captain's windshield at high speed while they are piloting to complete this objective.
+  - "Accidently" leave a single vial of explosive mineral, such as potassium, in a container on the ship that is likely to flood. If anyone dies or any items (other than the vial) are destroyed as a result of this tomfoolery, you fail this role.
+  - Steal the <Captain/Doctor/Security Officer/Mechanic's/Engineer's> ID for at least 5 minutes.
+
+  Traitor Engineer - ""
+  - Stealthily rewire and switch any two control inputs on the ships. If you cannot reverse what you've done in a timely fashion, you fail this role. 
+  - Create a useless and annoying circuit. If someone complains about it, you have completed this objective.
+  - Electronically lock <target> in a room or out of the ship for at least 60 seconds. They must be aware they cannot leave the room before the timer starts. If they break out, it doesn't count. If you force them to break out 3 times, you have completed this objective.
+  - Melt the reactor down without hurting anyone or destroying any items. If the round ends within 10 minutes of the meltdown, you fail this role.
+  - Run the reactor for at least 5 minutes with at least 1 empty fuel rod where there should be 1 full one.
+  - 3 EMP grenades have been delivered to your inventory. Activate them all this round aboard the ship in the times and places of your choosing to complete this objective.
+
+  Traitor Mechanic - ""
+  - Make up a mechanical issue as an excuse to <x>
+
+  Traitor Security - "Dirty Cop"
+  - Perform "routine" inspections of at least 5 other players over the course of the round. Each time, take an item from their inventory and put it in your secure locker.
+  - Arrest an assistant for posession of contraband. Plant it on them during the arrest. Lock them in a room for 5 minutes.
+  - Fire an entire box of ship ammunition during a fight in a single burst without hitting anything. You may only attempt this once. Before doing so, say a cool action catchphrase like "Dodge this!" so that you can refer back to it after the round.
+  - Extort 200mks off of <target>. If they refuse, arrest them for posession of contraband. Plant it on them during the arrest. Lock them handcuffed in a room for 5 minutes.
+  - Extort 200mks off of <target>. If they refuse, either stun them 5 times or knock them unconscious once without anyone seeing you do it. If they die after you knock them unconscious, you fail the round.
+  - Turn <target> into an informant. Inform them that <target 2> is a <traitor role> and set them to watching them. Tell them to report their findings to you and the captain.
+
+  Traitor Doctor - ""
+  - Countdown before healing someone
+  - "Accidently" inject someone with poison while healing them. Keep them in an unconscious poisoned state without them dying for at least 60 seconds. If they die, you fail the role.
+
+  Traitor Captain - ""
+  - Excessively punitive duties
+  - If the ship has a drone, shuttle someone to the objective and "accidently" <take a circuitous path, colliding with <x> objects along the way>/<make up a reason to strand them in the drone for at least 120 seconds>
+
+Basic traitors beyond simple roles (like traitor medic, traitor mechanic, ect.)
+  "Gossip Girl"
+  - Spread intrigue, frame people
+
+  "The Perfect Heist"
+  - This role only lasts for a single mission, so make the most of it!
+  (1 of the following)
+  - “Convince” the captain to transfer at least 2,000mks to your personal account. If they resist for a full two minutes, you are allowed to escalate force up to knocking them out. If they die, you fail the role. If the Captain refuses and you have knocked them unconscious, then you can steal their ID and use it to transfer money to yourself at the next station if you survive the round.
+  - Escape from the sub with a crate full of at least 1,000mks worth of sell-only loot, such as moloch bones, and survive the round. If successful, set the crate aside and sell it at the next colony. You receive 50% of the money from the sale.
+
+  "Dark Jester" (Asssistant Only)
+  - This role only lasts for a single mission, so make the most of it!
+  - Your brain is warped by dark Cluwne energies. When you speak, you must speak like a goofy clown (if you can't or won't, you fail this role and must turn in your clown badge).
+  - You must wear full Clown attire at all times unless your life is immediately at risk.
+  - Slip at least 5 players with banana peels.
+  - Replace 3 welding fuel tanks in welders with air tanks.
+  - Replace 3 air tanks in diving suits with fuel tanks.
+  (one of the following)
+  - Knock <target> fully unconscious (make sure you can heal them), hide their radio headset and ID, dress them in clown clothing, inject them with a hallucinogen, leave them handcuffed in a public place, then deny all knowledge of the incident.
+  - In a normal voice, count down from 5 and then set off a bomb on the sub without hurting anyone or destroying any items. Regardless of the damage you cause, you must immediately apologize in a sad clown voice. If you do hurt someone or destroy an item, then you fail this role.
+  - Survive the round and escape.
+
+  "Person for the Ethical Treatment of Monstrosities"
+  - This role lasts until you complete or fail all of your responsibilies, which are listed below:
+  - Hatch 1 egg per round and ensure the creature survives until the next round, at which time you must release it back into the wild to join its family. If someone harms one of your creatures before you release it, you must take bloody vengeance and kill that player before docking at the next station or you fail this role. If you kill the wrong player or cannot prove they harmed the creature via a witness or log verification (subject to moderator's whims) then you fail this role. If you successfully release 3 monstrosities back into the wild, you succceed at this role.
+ - You have been provided with a <random dangerous monster egg>. Secretly raise this dangerous creature to adulthood onboard the submarine before attempting to release it into the wild.
+ - Survive the round and escape.
+
+  "Upstart Pirate Lord"
+  - This role is kept until your mission is complete or you resign.
+  - Convince one person per round to support you in an upcoming mutiny. Send them a screenshot of this message and make sure that they acknowledge that they are a part of your mutiny in writing via discord. Once they have agreed in writing to join your plot, they cannot back out or betray you. 
+  - If your plot is discovered, you must immediately begin the mutiny.
+  - Incite a mutiny against the current captain and become the new captain
+  - Survive the round and escape.
+
+  "Separatist Agitator"
+  - This role is kept until your mission is complete, you are forced to resign, or you are eliminated by the Coalition Spy.
+  - Deduce the identity of the Coalition Spy and eliminate them. You are only allowed to eliminate one target, and if you eliminate the wrong one, you fail this role (resolve this at the end of the round in which you kill someone).
+  - Eliminate cargo or personnel involved in a Coalition mission
+  - You have been given a <memory card/tablet> containing sensitive cryptographical data. If this object leaves the ship for any reason, you must publicly resign the role. Once per round, you must transmit this code wirelessly to channel <random> or publicly resign the role.
+  - The Separatist Agitator has been given a <memory card/tablet> with a code on it. Obtain the code, then multiply it with your own cypher code and wirelessly transmit the result to channel <random>.
+  - The Captain's locker contains a <memory card/tablet> with a code on it. The captain is required to keep this object in their locker at all times. Obtain the code, then multiply it with your own cypher code and wirelessly transmit the result to channel <random>.
+  - Survive the round and escape.
+
+  "Coalition Spy"
+  - This role is kept until your mission is complete, you are forced to resign, or you are eliminated by the Separatist Agitator.
+  - Deduce the identity of the Separatist Agitator and eliminate them. You are only allowed to eliminate one target, and if you eliminate the wrong one, you fail this role (resolve this at the end of the round in which you kill someone).
+  - Eliminate cargo or personnel involved in a Separatist mission
+  - You have been given a <memory card/tablet> containing sensitive cryptographical data. If this object leaves the ship for any reason, you must publicly resign the role. Once per round, you must transmit this code wirelessly to channel <random> or publicly resign the role.
+  - The Separatist Agitator has been given a <memory card/tablet> with a code on it. Obtain the code, then multiply it with your own cypher code and wirelessly transmit the result to channel <random>.
+  - The Captain's locker contains a <memory card/tablet> with a code on it. The captain is required to keep this object in their locker at all times. Obtain the code, then multiply it with your own cypher code and wirelessly transmit the result to channel <random>.
+  - Survive the round and escape.
+
+Rare traitors (much more dangerous, always requires a round restart, selected some % of the time a traitor is rolled (would keep this low, say 10%, by default), chosen randomly from this list. If too much, could do a gentlemens' agreement to simply not play these roles when asssigned):
+  Changeling
+  - Kill everyone aboard the sub, one-by-one. You must take on the identity of the person you kill (clothes, ID, and obscure face) before killing anyone else. When you assume an identity, you may choose to send the player a screenshot of this message. They are now on your side and speak for you. They must try their best to help you achieve your objective. For the hivemind!
+
+  Husk Patient Zero
+  - Kill everyone aboard the sub, including yourself, with a husk infection. Once infected, you can only talk in groans. Long live the Cult!
+  
+  Prophet of Dagon
+  - Kill everyone aboard the sub, including yourself, by sinking it below crush depth. As the ship passes crush depth you must recite a psalm to your dark master on the radio to seal the compact. Once below crush depth the ship's crew need not die from water pressure (sometimes Dagon can use an extra hand), but if any crew manage to escape crush depth, even without the sub, then you have failed. Iä Dagon!
+
+  Separatist Revolutionary
+  - Kill everyone who isn't a fellow Revolutionary. When the round starts, message up to one-quarter of the other players (rounding down, minimum of 1) with a screenshot of this message. They are now your fellow Revolutionaries and are fully loyal to you. Begin sewing the seeds of your revolution. When you are ready, you must give the spoken signal to begin your revolution on channel 0000: <randomly generated phrase>. On the signal, all revolutionaries must don matching outfits, remove their oppressive IDs, and cover their faces. Down with the bourgeoisie pigs!
+  
+  Coalition Nuclear Operative
+  - Kill everyone aboard the sub, including yourself, with a single large detonation synchronized via a signal or chain reaction. You must clearly and slowly count down from 5 to 0 in voice before detonating the explosives.
+
+Suzera Ideas:
+try not to get suspected before your hijink is done
+blow a hole in the ship using a non-nuclear explosive during a fight
+destroy engine during a fight
+cut 3 important wires
+sonar pulse when trying to run silent
+hide the welding tools from the npc repairers (maybe too much like welding them in a room idk)
+"accidentally" have the ship fight an abyss monster
+rotate directions you give people by 90 degrees
+decide to use an entirely different orienting system than usual
+be inaccurate with bullets
+drop a mininuke when nobody else is around (but not where items can fall out)
+husk yourself and try to turn in a convenient place to get more players
+find a way to go unconscious implausibly or inconveniently, but not dead so people have to scramble to rescue you. give poor directions
+that piezo crystal explosion was a bit too close
+drone goes on adventure. maybe needlessly.
+tell people the wrong room names for where things and events are, especially when monsters are on the boat
+spread ammo boxes across the ship
+
+Other ideas:
+Lone operative spawns in a shuttle, job is to infiltrate ship crew
+Sub edits to make important wires hard-wired
+Evil clone: You spawn in as someone else, exact copy of gear and name, and your job is to murder the original and take their place
+Speed: wire a bomb on the ship that triggers if the boat drops below X speed
+
+Suzera’s suggestions:
+no:
+-specifically murder
+-destroy items
+-just waste items (including like the thing tried last night after being cuffed by telling the ai to use medicines)
+-hide things in toxin/security containers
+-don't retrieve corpses
+-using discord/ooc chat to to lie about traitor stuff
+-disordering the main resource storages or other non-final products. handling this is already a pain and would only increase tedium, not danger
+party foul:
+-knowingly kill an npc (or maybe reduce cost and increase availability so we can kill them with less consequence)
+-the whole medbay fort deal type stuff where it gets in the way of regular gameplay even when not traitoring
