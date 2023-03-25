@@ -9,11 +9,12 @@ config.ChatMessageType = ChatMessageType.Private    -- Error = red | Private = g
 
 ----- GAMEPLAY -----
 config.Codewords = {
-    "hull", "tabacco", "nonsense", "fish", "clown", "quartermaster", "fast", "possibility",
+    "hull", "tobacco", "nonsense", "fish", "clown", "quartermaster", "fast", "possibility",
 	"thalamus", "hungry", "water", "looks", "renegade", "angry", "green", "sink", "rubber",
 	"mask", "sweet", "ice", "charybdis", "cult", "secret", "frequency",
 	"husk", "rust", "ruins", "red", "boat", "cats", "rats", "blast",
-	"tire", "trunk", "weapons", "threshers", "cargo", "method", "monkey"
+	"tire", "trunk", "weapons", "threshers", "cargo", "method", "monkey",
+    "donkey balls", "ubiquitous", "mendacious", "polyglottal"
 }
 
 config.AmountCodeWords = 2
@@ -179,7 +180,7 @@ config.RoleConfig = {
         TraitorDm = false,                  -- traitors can send direct messages to other players using !tdm
 
         -- Names, None
-        TraitorMethodCommunication = "Names",
+        TraitorMethodCommunication = "Codewords",
 
         SelectBotsAsTargets = false,
         SelectPiratesAsTargets = false,
@@ -202,7 +203,7 @@ config.RoleConfig = {
         TraitorDm = false,                  -- traitors can send direct messages to other players using !tdm
 
         -- Names, Codewords, None
-        TraitorMethodCommunication = "Names",
+        TraitorMethodCommunication = "Codewords",
 
         SelectBotsAsTargets = false,
         SelectPiratesAsTargets = false,
