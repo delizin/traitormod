@@ -1,5 +1,6 @@
 local config = {}
 config.DebugLogs = true
+config.DebugMode = false
 
 config.TraitorChance = 0.15
 
@@ -113,7 +114,9 @@ config.GamemodeConfig = {
         },
 
         AmountTraitors = function (amountPlayers)
-            config.TestMode = false
+            config.TestMode = false -- ??
+            if config.DebugMode then return 1 end
+
             if amountPlayers > 12 then
                 if .5 > math.random() then
                     return 2 
@@ -121,7 +124,8 @@ config.GamemodeConfig = {
                     return 1
                 end
             end
-            if amountPlayers > 5 then return 1 end            
+            if amountPlayers > 5 then return 1 end
+                     
             print("Not enough players to start traitor mode.")
             return 0
         end,

@@ -83,39 +83,45 @@ Traitormod.RoundStart = function()
 
     Traitormod.SelectedGamemode = nil
     
-    if LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.PvPMode") then
-        Traitormod.SelectedGamemode = Traitormod.Gamemodes.PvP:new()
-    elseif LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.CampaignMode") then
-        if Level.IsLoadedOutpost then
-            Traitormod.Log("Campaign - No Traitors on Outpost") -- TODO: Implement Outpost Specific Traitor Gamemode
-            Traitormod.SelectedGamemode = Traitormod.Gamemodes.Gamemode:new()
-            return
-        end
-        if Game.ServerSettings.TraitorsEnabled == 1 then
-            local traitor_chance_roll = math.random() -- setting TraitorChance to for example 0.7 means: 70% chance *for* traitor
-            Traitormod.Log("Campaign - Traitor chance roll:"..traitor_chance_roll..", configured chance:"..Traitormod.Config.TraitorChance)
-            if Traitormod.Config.TraitorChance > math.random() then
-                Traitormod.Log("Campaign - Rolled for active traitor gamemode")
+    if Traitormod.Config.DebugMode then
+        Traitormod.Log("Debug Mode Enabled: Traitor Gamemode forced!")
+        Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
+    else
+        if LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.PvPMode") then
+            Traitormod.SelectedGamemode = Traitormod.Gamemodes.PvP:new()
+        elseif LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.CampaignMode") then
+            if Level.IsLoadedOutpost then
+                Traitormod.Log("Campaign - No Traitors on Outpost") -- TODO: Implement Outpost Specific Traitor Gamemode
+                Traitormod.SelectedGamemode = Traitormod.Gamemodes.Gamemode:new()
+                return
+            end
+            if Game.ServerSettings.TraitorsEnabled == 1 then
+                local traitor_chance_roll = math.random() -- setting TraitorChance to for example 0.7 means: 70% chance *for* traitor
+                Traitormod.Log("Campaign - Traitor chance roll:"..traitor_chance_roll..", configured chance:"..Traitormod.Config.TraitorChance)
+                if Traitormod.Config.TraitorChance > math.random() then
+                    Traitormod.Log("Campaign - Rolled for active traitor gamemode")
+                    Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
+                else
+                    Traitormod.Log("Campaign - Rolled for regular campaign gamemode")
+                    Traitormod.SelectedGamemode = Traitormod.Gamemodes.Gamemode:new()
+                end
+            elseif Game.ServerSettings.TraitorsEnabled == 2 then
+                Traitormod.Log("Campaign - Guaranteed traitor gamemode")
                 Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
             else
-                Traitormod.Log("Campaign - Rolled for regular campaign gamemode")
+                Traitormod.Log("Campaign - Guaranteed regular campaign gamemode")
                 Traitormod.SelectedGamemode = Traitormod.Gamemodes.Gamemode:new()
             end
-        elseif Game.ServerSettings.TraitorsEnabled == 2 then
-            Traitormod.Log("Campaign - Guaranteed traitor gamemode")
-            Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
         else
-            Traitormod.Log("Campaign - Guaranteed regular campaign gamemode")
-            Traitormod.SelectedGamemode = Traitormod.Gamemodes.Gamemode:new()
+            Traitormod.SelectedGamemode = nil
         end
-    else
-        Traitormod.SelectedGamemode = nil
     end
 
     if Traitormod.SelectedGamemode == nil then
         Traitormod.Log("No gamemode selected!")
         return
     end
+    
 
     Traitormod.Log("Starting gamemode " .. Traitormod.SelectedGamemode.Name)
 
