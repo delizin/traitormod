@@ -56,7 +56,7 @@ Traitormod.RoundStart = function()
         end
 
         -- give XP to players based on stored points
-        if Traitormod.Config.EnablePointsExp then
+        if Traitormod.Config.EnablePointExp then
             if not value.SpectateOnly then
                 Traitormod.LoadExperience(value)
             else
