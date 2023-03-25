@@ -1,6 +1,47 @@
 Swayze Brainstorming:
 
+Basic profession traitor roles (maybe like 50% odds each time?)
+  Traitor Assistant - "Prankster"
+  (Randomly assign 3 of the following)
+  - Ping the sonar unnecessarily until the captain tells you to stop. Ping it at least <x> times more after that.
+  - In a fight, "accidently" shoot someone once with a non-lethal projectile.
+  - Go limp until you run out of oxygen and pass out at an inconvenient time. If you die, you fail this role.
+  - Hide the drone somewhere out of signal range for at least 5 minutes. If the drone is lost, you fail this role. 
+  - Ram the drone into the Captain's windshield at high speed while they are piloting to complete this objective.
+  - "Accidently" leave a single vial of explosive mineral, such as potassium, in a container on the ship that is likely to flood. If anyone dies or any items (other than the vial) are destroyed as a result of this tomfoolery, you fail this role.
+  - Steal the <Captain/Doctor/Security Officer/Mechanic's/Engineer's> ID for at least 5 minutes.
+
+  Traitor Engineer - ""
+  - Stealthily rewire and switch any two control inputs on the ships. If you cannot reverse what you've done in a timely fashion, you fail this role. 
+  - Create a useless and annoying circuit. If someone complains about it, you have completed this objective.
+  - Electronically lock <target> in a room or out of the ship for at least 60 seconds. They must be aware they cannot leave the room before the timer starts. If they break out, it doesn't count. If you force them to break out 3 times, you have completed this objective.
+  - Melt the reactor down without hurting anyone or destroying any items. If the round ends within 10 minutes of the meltdown, you fail this role.
+  - Run the reactor for at least 5 minutes with at least 1 empty fuel rod where there should be 1 full one.
+  - 3 EMP grenades have been delivered to your inventory. Activate them all this round aboard the ship in the times and places of your choosing to complete this objective.
+
+  Traitor Mechanic - ""
+  - Make up a mechanical issue as an excuse to <x>
+
+  Traitor Security - "Dirty Cop"
+  - Perform "routine" inspections of at least 5 other players over the course of the round. Each time, take an item from their inventory and put it in your secure locker.
+  - Arrest an assistant for posession of contraband. Plant it on them during the arrest. Lock them in a room for 5 minutes.
+  - Fire an entire box of ship ammunition during a fight in a single burst without hitting anything. You may only attempt this once. Before doing so, say a cool action catchphrase like "Dodge this!" so that you can refer back to it after the round.
+  - Extort 200mks off of <target>. If they refuse, arrest them for posession of contraband. Plant it on them during the arrest. Lock them handcuffed in a room for 5 minutes.
+  - Extort 200mks off of <target>. If they refuse, either stun them 5 times or knock them unconscious once without anyone seeing you do it. If they die after you knock them unconscious, you fail the round.
+  - Turn <target> into an informant. Inform them that <target 2> is a <traitor role> and set them to watching them. Tell them to report their findings to you and the captain.
+
+  Traitor Doctor - ""
+  - Countdown before healing someone
+  - "Accidently" inject someone with poison while healing them. Keep them in an unconscious poisoned state without them dying for at least 60 seconds. If they die, you fail the role.
+
+  Traitor Captain - ""
+  - Excessively punitive duties
+  - If the ship has a drone, shuttle someone to the objective and "accidently" <take a circuitous path, colliding with <x> objects along the way>/<make up a reason to strand them in the drone for at least 120 seconds>
+
 Basic traitors beyond simple roles (like traitor medic, traitor mechanic, ect.)
+  "Gossip Girl"
+  - Spread intrigue, frame people
+
   "The Perfect Heist"
   - This role only lasts for a single mission, so make the most of it!
   (1 of the following)
@@ -33,8 +74,8 @@ Basic traitors beyond simple roles (like traitor medic, traitor mechanic, ect.)
   - Survive the round and escape.
 
   "Separatist Agitator"
-  - This role is kept until your mission is complete or you resign.
-  - Deduce the identity of the Coalition Spy and eliminate them without anyone noticing. You are only allowed to eliminate one target, and if you eliminate the wrong one, you fail this role (resolve this at the end of the round in which you kill someone).
+  - This role is kept until your mission is complete, you are forced to resign, or you are eliminated by the Coalition Spy.
+  - Deduce the identity of the Coalition Spy and eliminate them. You are only allowed to eliminate one target, and if you eliminate the wrong one, you fail this role (resolve this at the end of the round in which you kill someone).
   - Eliminate cargo or personnel involved in a Coalition mission
   - You have been given a <memory card/tablet> containing sensitive cryptographical data. If this object leaves the ship for any reason, you must publicly resign the role. Once per round, you must transmit this code wirelessly to channel <random> or publicly resign the role.
   - The Separatist Agitator has been given a <memory card/tablet> with a code on it. Obtain the code, then multiply it with your own cypher code and wirelessly transmit the result to channel <random>.
@@ -42,8 +83,8 @@ Basic traitors beyond simple roles (like traitor medic, traitor mechanic, ect.)
   - Survive the round and escape.
 
   "Coalition Spy"
-  - This role is kept until your mission is complete or you resign. 
-  - Deduce the identity of the Coalition Spy and eliminate them without anyone noticing. You are only allowed to eliminate one target, and if you eliminate the wrong one, you fail this role (resolve this at the end of the round in which you kill someone).
+  - This role is kept until your mission is complete, you are forced to resign, or you are eliminated by the Separatist Agitator.
+  - Deduce the identity of the Separatist Agitator and eliminate them. You are only allowed to eliminate one target, and if you eliminate the wrong one, you fail this role (resolve this at the end of the round in which you kill someone).
   - Eliminate cargo or personnel involved in a Separatist mission
   - You have been given a <memory card/tablet> containing sensitive cryptographical data. If this object leaves the ship for any reason, you must publicly resign the role. Once per round, you must transmit this code wirelessly to channel <random> or publicly resign the role.
   - The Separatist Agitator has been given a <memory card/tablet> with a code on it. Obtain the code, then multiply it with your own cypher code and wirelessly transmit the result to channel <random>.

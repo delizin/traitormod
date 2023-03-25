@@ -1,4 +1,11 @@
-Modified version of Traitermod to work in multiplayer campaign mode.
+Modified version of Evilfactory's Traitermod to work in multiplayer campaign mode.
+
+__**Mod development resources**__
+
+*Barotrauma Source*: https://github.com/Regalis11/Barotrauma
+
+*Lua for Barotrauma Docs*: https://evilfactory.github.io/LuaCsForBarotrauma/lua-docs/
+
 
 __**The Traitor Mode**__
 
