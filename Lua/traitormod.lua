@@ -86,6 +86,11 @@ Traitormod.RoundStart = function()
     if LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.PvPMode") then
         Traitormod.SelectedGamemode = Traitormod.Gamemodes.PvP:new()
     elseif LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.CampaignMode") then
+        if Level.IsLoadedOutpost then
+            Traitormod.Log("Campaign - No Traitors on Outpost") -- TODO: Implement Outpost Specific Traitor Gamemode
+            Traitormod.SelectedGamemode = Traitormod.Gamemodes.Gamemode:new()
+            return
+        end
         if Game.ServerSettings.TraitorsEnabled == 1 then
             local traitor_chance_roll = math.random() -- setting TraitorChance to for example 0.7 means: 70% chance *for* traitor
             Traitormod.Log("Campaign - Traitor chance roll:"..traitor_chance_roll..", configured chance:"..Traitormod.Config.TraitorChance)
