@@ -453,6 +453,10 @@ Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/c
 Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/trippingballs.lua"))
 Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/upsettummy.lua"))
 Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/mutiny.lua"))
+Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/stealdoctorid.lua"))
+Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/stealengineerid.lua"))
+Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/stealmechanicid.lua"))
+Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/stealsecurityid.lua"))
 
 -- Roles --
 Traitormod.RoleManager.AddRole(dofile(Traitormod.Path .. "/Lua/roles/role.lua"))

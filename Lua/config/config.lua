@@ -38,7 +38,7 @@ config.PermanentPoints = true      -- sets if points and lives will be stored in
 config.RemotePoints = nil
 config.RemoteServerAuth = {}
 config.PermanentStatistics = false  -- sets if statistics be stored in and loaded from a file
-config.MaxLives = 1
+config.MaxLives = 5
 config.MinRoundTimeToLooseLives = 180
 config.RespawnedPlayersDontLooseLives = false
 config.MaxExperienceFromPoints = 0     -- if not nil, this amount is the maximum experience players gain from stored points (30k = lvl 10 | 38400 = lvl 12)
@@ -168,7 +168,7 @@ config.RoleConfig = {
     },
 
     Cultist = {
-        SubObjectives = {"Assassinate", "Kidnap", "TurnHusk", "TrippingBalls", "UpsetTummy"},
+        SubObjectives = {"Assassinate", "Kidnap", "TurnHusk", "TrippingBalls", "UpsetTummy", "StealCaptainID", "StealDoctorID", "StealSecurityID", "StealEngineerID", "StealMechanicID"}
         MinSubObjectives = 2,
         MaxSubObjectives = 3,
 
@@ -191,7 +191,7 @@ config.RoleConfig = {
     },
 
     Traitor = {
-        SubObjectives = {"Mutiny", "StealCaptainID", "Survive", "Kidnap", "PoisonCaptain", "TrippingBalls", "UpsetTummy"},
+        SubObjectives = {"Mutiny", "StealCaptainID", "Survive", "Kidnap", "PoisonCaptain", "TrippingBalls", "UpsetTummy", "StealDoctorID", "StealSecurityID", "StealEngineerID", "StealMechanicID"}
         MinSubObjectives = 2,
         MaxSubObjectives = 3,
 

@@ -81,10 +81,14 @@ language.ObjectiveAssassinate = "Assassinate %s."
 
 language.ObjectiveSurvive = "Complete at least one objective and survive the shift."
 language.ObjectiveStealCaptainID = "Steal the captain's ID."
+language.ObjectiveStealDoctorID = "Steal a doctor's ID."
+language.ObjectiveStealEngineerID = "Steal a engineer's ID."
+language.ObjectiveStealSecurityID = "Steal a security officer's ID."
+language.ObjectiveStealMechanicID = "Steal a mechanic's ID."
 language.ObjectiveKidnap = "Handcuff %s for %s seconds."
 language.ObjectivePoisonCaptain = "Poison %s with %s."
 language.ObjectiveWreckGift = "Grab the gift"
-language.ObjectiveMutiny = "Mutiny against Captain %s. Steal the captain\'s ID and handcuff the captain for %s seconds."
+language.ObjectiveMutiny = "Mutiny against Captain %s. Claim the Captain's ID for yourself and handcuff the captain for %s seconds. Do not kill the Captain."
 
 language.ObjectiveText = "Assassinate the crew in order to complete your mission."
 

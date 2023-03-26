@@ -1,4 +1,4 @@
--- The mutiny objective is to handcuff the captain, take his ID, and seize control of the ship. 
+-- The mutiny objective is to handcuff the captain, wear his ID, and seize control of the ship. 
 
 local objective = Traitormod.RoleManager.Objectives.Objective:new()
 
@@ -29,14 +29,15 @@ function objective:Start(target)
 end
 
 function objective:IsCompleted()
-    objective_1_complete = false
-    objective_2_complete = false
+    local objective_1_complete = false
+    local objective_2_complete = false
 
-    -- Objective 1 - Has Captain ID
-    for item in self.Character.Inventory.AllItems do
-        if item.Prefab.Identifier == "idcard" and item.GetComponentString("IdCard").OwnerJobId == "captain" then
-            objective_1_complete = true
-        end
+    -- Objective 1 - Wearing Captain ID
+    local id_card = char.Inventory.GetItemInLimbSlot(InvSlotType.Card)
+    if id_card.Prefab.Identifier == "idcard" and id_card.GetComponentString("IdCard").OwnerJobId == "captain" then
+        objective_1_complete = true
+    else
+        objective_1_complete = false
     end
 
     -- Objective 2 - Captain is Handcuffed
