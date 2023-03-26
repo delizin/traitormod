@@ -43,7 +43,7 @@ language.TraitorsRound = "Traitors of the round:"
 language.NoTraitors = "No traitors."
 language.TraitorAlive = "You survived as a traitor."
 
-language.PointsInfo = "You have %s points and %s/%s lives."
+language.PointsInfo = "You have %s points, %s/%s lives and $%s."
 language.TraitorInfo = "Your traitor chance is %s%%, compared to the rest of the crew."
 
 language.Points = " (%s Points)"

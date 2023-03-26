@@ -39,6 +39,12 @@ Traitormod.LoadRemoteData = function (client, loaded)
             Traitormod.SetData(client, "Points", result.Points)
         end
 
+        if result.Wallet then
+            local originalWallet = Traitormod.GetData(client, "Wallet") or 0
+            Traitormod.Log("Retrieved wallet from server for " .. client.SteamID .. ": " .. originalWallet .. " -> " .. result.Wallet)
+            Traitormod.SetData(client, "Wallet", result.Wallet)
+        end
+
         if loaded then loaded() end
     end, json.encode(data))
 end
@@ -410,8 +416,8 @@ Traitormod.GetDataInfo = function(client, showWeights)
 
         weightInfo = "\n\n" .. string.format(Traitormod.Language.TraitorInfo, math.floor(percentage))
     end
-
-    return string.format(Traitormod.Language.PointsInfo, math.floor(Traitormod.GetData(client, "Points") or 0), Traitormod.GetData(client, "Lives") or Traitormod.Config.MaxLives, Traitormod.Config.MaxLives) .. weightInfo
+    
+    return string.format(Traitormod.Language.PointsInfo, math.floor(Traitormod.GetData(client, "Points") or 0), Traitormod.GetData(client, "Lives") or Traitormod.Config.MaxLives, Traitormod.Config.MaxLives, Traitormod.GetData(client, "Wallet") or 0) .. weightInfo
 end
 
 Traitormod.ClientLogName = function(client, name)

@@ -1,4 +1,5 @@
 dofile(Traitormod.Path .. "/Lua/traitormodutil.lua")
+dofile(Traitormod.Path .. "/Lua/persistentwallet.lua")
 
 Game.OverrideTraitors(true)
 
@@ -63,6 +64,10 @@ Traitormod.RoundStart = function()
                 Traitormod.Debug("Skipping load experience for spectator " .. value.Name)
             end
         end
+
+        -- Load Wallets for each player
+        -- Traitormod.Debug("Loading Wallet at Round Start for " .. value.Name .. ".")
+        -- Traitormod.LoadWallet(value)
 
         -- Send Welcome message
         Traitormod.SendWelcome(value)
@@ -218,8 +223,12 @@ Hook.Add("characterCreated", "Traitormod.CharacterCreated", function(character)
                 if Traitormod.Config.EnablePointExp then
                     Traitormod.LoadExperience(client)
                 end
+
+            -- Load wallet balance of respawned character to stored value
+            Traitormod.Debug("Loading wallet at character creation for " .. client.Name)
+            Traitormod.LoadWallet(client)
         else
-            Traitormod.Error("Loading experience on characterCreated failed! Client was nil after 1sec")
+            Traitormod.Error("Loading experience/wallet on characterCreated failed! Client was nil after 1sec")
         end
     end, 1000)
 end)
@@ -301,6 +310,10 @@ Hook.Add("clientConnected", "Traitormod.ClientConnected", function (client)
         Traitormod.SendMessage(client, lifeMsg, lifeIcon)
 
         Traitormod.AbandonedCharacters[client.SteamID] = nil
+    elseif Traitormod.AbandonedCharacters[client.SteamID] and not Traitormod.AbandonedCharacters[client.SteamID].IsDead then
+        -- Load Wallet balance of living characters
+        -- Traitormod.Debug("Loading wallet at reconnect for " .. client.Name)
+        -- Traitormod.LoadWallet(client)
     end
 end)
 
@@ -310,11 +323,13 @@ Hook.Add("clientDisconnected", "Traitormod.ClientDisconnected", function (client
         Traitormod.PublishRemoteData(client)
     end
 
-    -- if character was alive while disconnecting, make sure player looses live if he rejoins the round
+    -- if character was alive while disconnecting, make sure player loses a life if he rejoins the round
     if client.Character and not client.Character.IsDead and client.Character.IsHuman then
         Traitormod.Debug(string.format("%s disconnected with an alive character. Remembering for rejoin...",
             Traitormod.ClientLogName(client)))
         Traitormod.AbandonedCharacters[client.SteamID] = client.Character
+        -- Saving Wallet
+        -- Traitormod.SaveWallet(client)
     end
 end)
 
@@ -403,6 +418,7 @@ if Traitormod.Config.OverrideRespawnSubmarine then
     Traitormod.SubmarineBuilder = dofile(Traitormod.Path .. "/Lua/submarinebuilder.lua")
 end
 
+-- load all lua files --
 Traitormod.StringBuilder = dofile(Traitormod.Path .. "/Lua/stringbuilder.lua")
 Traitormod.Voting = dofile(Traitormod.Path .. "/Lua/voting.lua")
 Traitormod.RoleManager = dofile(Traitormod.Path .. "/Lua/rolemanager.lua")
@@ -415,10 +431,12 @@ dofile(Traitormod.Path .. "/Lua/statistics.lua")
 dofile(Traitormod.Path .. "/Lua/respawnshuttle.lua")
 dofile(Traitormod.Path .. "/Lua/traitormodmisc.lua")
 
+-- Gamemodes --
 Traitormod.AddGamemode(dofile(Traitormod.Path .. "/Lua/gamemodes/gamemode.lua"))
 Traitormod.AddGamemode(dofile(Traitormod.Path .. "/Lua/gamemodes/secret.lua"))
 Traitormod.AddGamemode(dofile(Traitormod.Path .. "/Lua/gamemodes/pvp.lua"))
 
+-- Objectives --
 Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/objective.lua"))
 Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/assassinate.lua"))
 Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/kidnap.lua"))
@@ -436,12 +454,16 @@ Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/t
 Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/upsettummy.lua"))
 Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/mutiny.lua"))
 
+-- Roles --
 Traitormod.RoleManager.AddRole(dofile(Traitormod.Path .. "/Lua/roles/role.lua"))
 Traitormod.RoleManager.AddRole(dofile(Traitormod.Path .. "/Lua/roles/antagonist.lua"))
 Traitormod.RoleManager.AddRole(dofile(Traitormod.Path .. "/Lua/roles/traitor.lua"))
 Traitormod.RoleManager.AddRole(dofile(Traitormod.Path .. "/Lua/roles/cultist.lua"))
 Traitormod.RoleManager.AddRole(dofile(Traitormod.Path .. "/Lua/roles/huskservant.lua"))
 Traitormod.RoleManager.AddRole(dofile(Traitormod.Path .. "/Lua/roles/crew.lua"))
+
+-- Custom Roles --
+
 
 -- Round start call for reload during round
 if Game.RoundStarted then
