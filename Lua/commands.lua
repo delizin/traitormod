@@ -18,7 +18,7 @@ Traitormod.AddCommand("!helptraitor", function (client, args)
 end)
 
 Traitormod.AddCommand("!version", function (client, args)
-    Traitormod.SendMessage(client, "Running Evil Factory's Traitor Mod v" .. Traitormod.VERSION)
+    Traitormod.SendMessage(client, "Running Modified Version of Evil Factory's Traitor Mod v" .. Traitormod.VERSION)
 
     return true
 end)
@@ -444,10 +444,63 @@ Traitormod.AddCommand("!assignrole", function (client, args)
     end
     Traitormod.RoleManager.AssignRole(targetCharacter, role:new())
 
-    Traitormod.SendMessage(client, "Assign " .. target.Name .. " the role " .. role.Name .. ".")
+    Traitormod.SendMessage(client, "Assigned " .. target.Name .. " the role " .. role.Name .. ".")
 
     return true
 end)
+
+Traitormod.AddCommand("!addobj", function (client, args)
+    if not client.HasPermission(ClientPermissions.ConsoleCommands) then return end
+    
+    if #args < 2 then
+        Traitormod.SendMessage(client, "Usage: !assignrole <client> <objective>")
+        return true
+    end
+
+    local target = Traitormod.FindClient(args[1])
+
+    if not target then
+        Traitormod.SendMessage(client, "Couldn't find a client with specified name / steamID")
+        return true
+    end
+
+    if target.Character == nil or target.Character.IsDead then
+        Traitormod.SendMessage(client, "Client's character is dead or non-existent.")
+        return true
+    end
+
+    local objective = Traitormod.RoleManager.FindObjective(args[2])
+
+    if objective == nil then
+        Traitormod.SendMessage(client, "Couldn't find objective to assign.")
+        return true
+    end
+
+    local character = target.Character
+    local role = Traitormod.RoleManager.GetRole(character)
+
+    if role == nil then
+        Traitormod.SendMessage(client, "Please assign a role prior to adding objectives.")
+        return true
+    end
+
+    Traitormod.Log("Attempting to assign objective " .. objective.Name .. " to " .. target.Name .. " (" .. target.SteamID .. ") by request of " .. client.Name .. " (" .. client.SteamID .. ")")
+    objective:Init(character)
+        objective.OnAwarded = function ()
+            Traitormod.Stats.AddCharacterStat("TraitorSubObjectives", character, 1)
+        end
+    
+    local target = role:FindValidTarget(objective)
+
+    if objective:Start(target) then
+        role:AssignObjective(objective)
+    end
+
+    Traitormod.SendMessage(client, role:Greet())
+
+    return true
+end)
+
 
 Traitormod.AddCommand("!triggerevent", function (client, args)
     if not client.HasPermission(ClientPermissions.ConsoleCommands) then return end

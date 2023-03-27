@@ -168,7 +168,7 @@ config.RoleConfig = {
     },
 
     Cultist = {
-        SubObjectives = {"Assassinate", "Kidnap", "TurnHusk", "TrippingBalls", "UpsetTummy", "StealCaptainID", "StealDoctorID", "StealSecurityID", "StealEngineerID", "StealMechanicID"}
+        SubObjectives = {"Assassinate", "Kidnap", "TurnHusk", "TrippingBalls", "UpsetTummy", "StealCaptainID", "StealDoctorID", "StealSecurityID", "StealEngineerID", "StealMechanicID"},
         MinSubObjectives = 2,
         MaxSubObjectives = 3,
 
@@ -191,7 +191,7 @@ config.RoleConfig = {
     },
 
     Traitor = {
-        SubObjectives = {"Mutiny", "StealCaptainID", "Survive", "Kidnap", "PoisonCaptain", "TrippingBalls", "UpsetTummy", "StealDoctorID", "StealSecurityID", "StealEngineerID", "StealMechanicID"}
+        SubObjectives = {"Mutiny", "StealCaptainID", "Survive", "Kidnap", "PoisonCaptain", "TrippingBalls", "UpsetTummy", "StealDoctorID", "StealSecurityID", "StealEngineerID", "StealMechanicID"},
         MinSubObjectives = 2,
         MaxSubObjectives = 3,
 
