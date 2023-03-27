@@ -43,11 +43,12 @@ On Linux, it will look something like this:
 - `!suicide`, `!kill`, or `!death`: Kills your character if alive and not handcuffed or knocked down.
 - `!locatesub` or `!locatesubmarine`: Provides the distance and direction of the main submarine from the player. Only works for monster characters. 
 - `!droppoints <amount>`: Drops specified points from the player's inventory.
+- `!confess`: Usable by traitors to confess their crimes. This will remove the traitor role from the player, revive them if dead, and remove handcuffs if cuffed so they can resume playing as a regular character.
 
 ### Role Management Commands
 - `!toggletraitor`: Toggles your traitor status on or off (if the mod allows optional traitors).
 - `!role` or `!traitor`: Shows your special role, if any. You need to be alive to use this command.
-- `!roles` or `!traitors`: (Admin only) Displays a list of all players with special roles.
+- `!roles` or `!traitors`: Displays a list of all players with special roles. Requires admin permissions.
 - `!assignrole <client> <role>`: Assigns a role to a specified player. Usage: `!assignrole <client> <role>`. Requires admin permissions.
 - `!addobj <client> <objective>`: Adds an objective to a specified player who already has a role assigned. Usage: `!addobj <client> <objective>`. Requires admin permissions.
 
