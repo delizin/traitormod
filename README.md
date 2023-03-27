@@ -6,6 +6,30 @@ This is a heavily modified version of Evilfactory's Traitermod. It is our attemp
 - Additional/modified roles and traitor objectives
 - Persistent wallets for players
 - No skill penalty on respawn to minimize long term gameplay impact of traitors
+- Traitor objectives are meant to minimally disruptive to long term progress and enjoyment of the game, while still creating a quiet distrust and suspicion of your crew.
+
+## How to Use
+### Install Requirements
+- *LuaCs for Barotrauma*: [https://evilfactory.github.io/LuaCsForBarotrauma/lua-docs/](https://evilfactory.github.io/LuaCsForBarotrauma/lua-docs/manual/installing-lua-for-barotrauma-manually/)
+
+### Install Mod on Dedicated Servers
+This is just a server-side mod and does not need to be installed by clients.
+1. Download this mod to the server.
+2. Add the mod to your config_player.xml file, located in your Barotrauma directly with the Barotrauma DedicatedServer executable
+
+On Linux, it will look something like this:
+```  
+<contentpackages>
+    <!--Vanilla-->
+    <corepackage
+      path="Content/ContentPackages/Vanilla.xml" />
+    <regularpackages>
+      <package path="/home/<username>/.local/share/Daedalic Entertainment GmbH/Barotrauma/WorkshopMods/Installed/traitormod-dev/filelist.xml" />
+    </regularpackages>
+</contentpackages>
+  ```
+3. Mod will announce that is working during server startup.
+4. Set your desired config settings in config.lua (See info below for the easily configurable options).
 
 ## Chat Commands
 
