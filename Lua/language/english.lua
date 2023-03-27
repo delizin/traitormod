@@ -23,6 +23,8 @@ language.TraitorDeath = "You have failed in your mission. As a result, the missi
 language.TraitorDirectMessage = "You received a secret message from a traitor:\n"
 language.TraitorBroadcast = "[Traitor %s]: %s"
 
+language.AntagonistConfessed = "%s has confessed to being a %s and begs for the crew's forgiveness."
+
 language.AgentNoticeCodewords = "There are other agents on this submarine. You dont know their names, but you do have a method of communication. Use the code words to greet the agent and code response to respond. Disguise such words in a normal-looking phrase so the crew doesn't suspect anything."
 
 language.AgentNoticeNoCodewords = "There are other agents on this submarine. You know their names, cooperate with them so you have a higher chance of success."

@@ -598,3 +598,29 @@ Traitormod.AddCommand({"!droppoints", "!droppoint", "!dropoint", "!dropoints"}, 
 
     return true
 end)
+
+Traitormod.AddCommand({"!confess", "!surrender"}, function (client, args)
+    local role = Traitormod.RoleManager.GetRole(client.Character)
+    if role == nil or not role.IsAntagonist then
+        Traitormod.SendMessage(client, "You have nothing you need to confess.")
+    else
+        local character = client.Character
+        Traitormod.RoleManager.RemoveRole(character)
+        Traitormod.SendMessageEveryone(string.format(Traitormod.Language.AntagonistConfessed, client.Name, role.Name))
+
+        -- Resurrect if Dead
+        if character.IsDead then
+            character.Respawn()
+        end
+
+        -- Remove Handcuffs if Handcuffed
+        local item = character.Inventory.GetItemInLimbSlot(InvSlotType.RightHand)
+
+        if item ~= nil and item.Prefab.Identifier == "handcuffs" then
+            Traitormod.Debug("Removing handcuffs from " .. client.Name)
+            item.Drop(character);
+        end
+    end
+
+    return true
+end)
