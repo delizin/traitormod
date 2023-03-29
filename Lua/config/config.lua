@@ -155,6 +155,7 @@ config.GamemodeConfig = {
         CrossTeamCommunication = true,
     },
 
+    -- Campaign Gamemode Settings
     Campaign = {
         EndOnComplete = true,           -- end round everyone but traitors are dead
         EnableRandomEvents = false,
@@ -190,19 +191,12 @@ config.GamemodeConfig = {
             Cultist = 20,
         },
 
+        -- This is the maximum number of traitors that can be in a round. Actual number is rolled each round.
         AmountTraitors = function (amountPlayers)
             config.TestMode = false -- ??
             if config.DebugMode then return 1 end
-
-            if amountPlayers > 12 then
-                if .5 > math.random() then
-                    return 2 
-                else
-                    return 1
-                end
-            end
+            if amountPlayers > 12 then return 2 end
             if amountPlayers > 5 then return 1 end
-
             print("Not enough players to start traitor mode.")
             return 0
         end,
@@ -219,6 +213,7 @@ config.GamemodeConfig = {
             return 1
         end
     },
+    -- End Campaign Gamemode Settings
 
 }
 
