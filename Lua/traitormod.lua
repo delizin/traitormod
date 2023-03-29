@@ -90,29 +90,19 @@ Traitormod.RoundStart = function()
     
     if Traitormod.Config.DebugMode then
         Traitormod.Log("Debug Mode Enabled: Traitor Gamemode forced!")
-        Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
+        Traitormod.SelectedGamemode = Traitormod.Gamemodes.Campaign:new()
     else
         if LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.PvPMode") then
             Traitormod.SelectedGamemode = Traitormod.Gamemodes.PvP:new()
         elseif LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.CampaignMode") then
             if Level.IsLoadedOutpost then
-                Traitormod.Log("Campaign - No Traitors on Outpost") -- TODO: Implement Outpost Specific Traitor Gamemode
+                Traitormod.Log("Campaign - No Traitors on Outpost") -- TODO: Implement Outpost Specific Campaign Gamemode
                 Traitormod.SelectedGamemode = Traitormod.Gamemodes.Gamemode:new()
                 return
             end
-            if Game.ServerSettings.TraitorsEnabled == 1 then
-                local traitor_chance_roll = math.random() -- setting TraitorChance to for example 0.7 means: 70% chance *for* traitor
-                Traitormod.Log("Campaign - Traitor chance roll:"..traitor_chance_roll..", configured chance:"..Traitormod.Config.TraitorChance)
-                if Traitormod.Config.TraitorChance > math.random() then
-                    Traitormod.Log("Campaign - Rolled for active traitor gamemode")
-                    Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
-                else
-                    Traitormod.Log("Campaign - Rolled for regular campaign gamemode")
-                    Traitormod.SelectedGamemode = Traitormod.Gamemodes.Gamemode:new()
-                end
-            elseif Game.ServerSettings.TraitorsEnabled == 2 then
-                Traitormod.Log("Campaign - Guaranteed traitor gamemode")
-                Traitormod.SelectedGamemode = Traitormod.Gamemodes.Secret:new()
+            if Game.ServerSettings.TraitorsEnabled == 1 or Game.ServerSettings.TraitorsEnabled == 2 then
+                Traitormod.Log("Campaign - Traitors Enabled")
+                Traitormod.SelectedGamemode = Traitormod.Gamemodes.Campaign:new()
             else
                 Traitormod.Log("Campaign - Guaranteed regular campaign gamemode")
                 Traitormod.SelectedGamemode = Traitormod.Gamemodes.Gamemode:new()
@@ -434,6 +424,7 @@ dofile(Traitormod.Path .. "/Lua/traitormodmisc.lua")
 -- Gamemodes --
 Traitormod.AddGamemode(dofile(Traitormod.Path .. "/Lua/gamemodes/gamemode.lua"))
 Traitormod.AddGamemode(dofile(Traitormod.Path .. "/Lua/gamemodes/secret.lua"))
+Traitormod.AddGamemode(dofile(Traitormod.Path .. "/Lua/gamemodes/campaign.lua"))
 Traitormod.AddGamemode(dofile(Traitormod.Path .. "/Lua/gamemodes/pvp.lua"))
 
 -- Objectives --
@@ -448,6 +439,7 @@ Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/t
 Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/destroycaly.lua"))
 Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/crew/killmonsters.lua"))
 Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/crew/repair.lua"))
+Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/crew/inducevomitting.lua"))
 
 -- Custom Objectives --
 Traitormod.RoleManager.AddObjective(dofile(Traitormod.Path .. "/Lua/objectives/trippingballs.lua"))

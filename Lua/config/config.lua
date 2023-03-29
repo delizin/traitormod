@@ -154,16 +154,83 @@ config.GamemodeConfig = {
         IdCardAllAccess = true,
         CrossTeamCommunication = true,
     },
+
+    Campaign = {
+        EndOnComplete = true,           -- end round everyone but traitors are dead
+        EnableRandomEvents = false,
+        EndGameDelaySeconds = 15,
+
+        TraitorSelectDelayMin = 120,
+        TraitorSelectDelayMax = 150,
+
+        PointsGainedFromHandcuffedTraitors = 1000,
+        DistanceToEndOutpostRequired = 8000,
+
+        MissionPoints = {
+            Salvage = 1100,
+            Monster = 1050,
+            Cargo = 1000,
+            Beacon = 1200,
+            Nest = 1700,
+            Mineral = 1000,
+            Combat = 1400,
+            AbandonedOutpost = 500,
+            Escort = 1200,
+            Pirate = 1300,
+            GoTo = 1000,
+            ScanAlienRuins = 1600,
+            ClearAlienRuins = 2000,
+            Default = 1000,
+        },
+        PointsGainedFromCrewMissionsCompleted = 0,
+        LivesGainedFromCrewMissionsCompleted = 0,
+
+        TraitorTypeChance = {
+            Traitor = 80, -- Traitors have 80% chance of being a normal traitor
+            Cultist = 20,
+        },
+
+        AmountTraitors = function (amountPlayers)
+            config.TestMode = false -- ??
+            if config.DebugMode then return 1 end
+
+            if amountPlayers > 12 then
+                if .5 > math.random() then
+                    return 2 
+                else
+                    return 1
+                end
+            end
+            if amountPlayers > 5 then return 1 end
+
+            print("Not enough players to start traitor mode.")
+            return 0
+        end,
+
+        -- 0 = 0% chance
+        -- 1 = 100% chance
+        TraitorFilter = function (client)
+            if client.Character.TeamID ~= CharacterTeamType.Team1 then return 0 end
+            if not client.Character.IsHuman then return 0 end
+            if client.Character.HasJob("captain") then return 0.5 end
+            if client.Character.HasJob("securityofficer") then return 0.5 end
+            if client.Character.HasJob("medicaldoctor") then return 0.5 end
+
+            return 1
+        end
+    },
+
 }
 
 config.RoleConfig = {
     Crew = {
         AvailableObjectives = {
             ["captain"] = {},
-            ["engineer"] = {},
+            ["engineer"] = {"Repair"},
             ["mechanic"] = {"Repair"},
             ["securityofficer"] = {"KillMonsters"},
             ["medic"] = {},
+            ["assistant"] = {"Repair"},
         }
     },
 

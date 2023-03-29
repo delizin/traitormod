@@ -33,10 +33,9 @@ function objective:SelectRandomRepairTarget()
         repairItem = electricalItem
 
     -- If Mechanic, Choose a random item from the mechanical list
-    else if 
+    elseif 
         self.Character.IsMechanic then
             repairItem = mechanicalItem
-
     -- If Assistant or Other, Choose a random item from the mechanical or electrical list
     else
         local randomItem = math.random(1, 2)
