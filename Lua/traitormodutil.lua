@@ -481,3 +481,52 @@ Traitormod.SendWelcome = function(client)
         Game.SendDirectChatMessage("", "| Traitor Mod v" .. Traitormod.VERSION .. " |\n" .. Traitormod.GetDataInfo(client), nil, ChatMessageType.Server, client)
     end
 end
+
+Traitormod.Introspect_Object = function(obj)
+    -- Still not real helpful for userdata
+    Traitormod.Debug("Introspecting Object")
+    
+    local obj_type = type(obj)
+    Traitormod.Debug("Object Type: " .. obj_type)
+  
+    if obj_type == "table" then
+      Traitormod.Debug("Table Contents:")
+      for k,v in pairs(obj) do
+        Traitormod.Introspect_Object(k)
+        Traitormod.Introspect_Object(v)
+      end
+    elseif obj_type == "function" then
+      local info = debug.getinfo(obj, "S")
+      Traitormod.Debug("Function Name: " .. (info.name or "<anonymous>"))
+      Traitormod.Debug("Source Location: " .. info.source)
+      Traitormod.Debug("Line Defined: " .. info.linedefined)
+      Traitormod.Debug("Line Last: " .. info.lastlinedefined)
+    elseif obj_type == "userdata" then
+      Traitormod.Debug("Userdata Contents:")
+      local mt = debug.getmetatable(obj)
+      if mt == nil then
+        Traitormod.Debug("Metatable: none")
+      else
+        Traitormod.Debug("Metatable Contents:")
+        local idx = 1
+        while true do
+          local k, v = debug.getuservalue(mt, idx)
+          if k == nil then
+            break
+          end
+          if k ~= "__metatable" then
+            Traitormod.Introspect_Object(k)
+            Traitormod.Introspect_Object(v)
+          end
+          idx = idx + 1
+        end
+      end
+    elseif obj_type == "thread" then
+      Traitormod.Debug("Thread Contents:")
+      -- TODO: Add more information about the thread here
+    elseif obj_type == "number" or obj_type == "string" or obj_type == "boolean" or obj_type == "nil" then
+      Traitormod.Debug("Value: " .. tostring(obj))
+    else
+      Traitormod.Debug("Unknown Object Type")
+    end
+  end
