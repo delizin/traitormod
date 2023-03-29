@@ -10,7 +10,7 @@ function objective:Start(target)
         return false
     end
 
-    if self.Character.IsCaptain then
+    if self.Character.IsMechanic then
         Traitormod.Debug("StealMechanicID: Mechanic cannot steal mechanic's ID.")
         return false
     end
